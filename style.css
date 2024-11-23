@@ -153,7 +153,7 @@ body {
             }
             .search-icon{
                 position: absolute;
-                top: 35%;
+                top: 30%;
                 left: 40%;
                 width: 100px;
                 animation: search 3s infinite;
@@ -275,7 +275,7 @@ body {
 .error-span{
     z-index: 999;
     display: none;
-    top: 0px;
+    top: 5px;
     left: 36%;
     color: var(--white);
     box-shadow: 0px 5px 5px 2px rgba(0, 0, 0, 0.127);
@@ -339,10 +339,20 @@ body {
     .app-container{
         width: 400px !important; 
     }
+    .error-span{
+        left: 20%;
+    }
+    .clear-span{
+        left: 28%;
+    }
 }
 @media (max-width:450px){
     .app-container{
         width: 320px !important; 
+    }
+    .error-span{
+        left: 10px;
+        width: 92%;
     }
 }
 .todo-item.done,
