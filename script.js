@@ -56,7 +56,7 @@ form.onsubmit = (e) => {
             todoItem.style.backgroundColor = "#e9493b6d";
             todoItem.style.border = "1px solid #ba3024";
             todoItem.classList.add("deleted");
-            statusText.innerHTML= "Deleting";
+            statusText.remove();
             statusText.style.color = "#ba3024";
             deleteSpan.classList.add("active");
             setTimeout(() => {
@@ -73,7 +73,7 @@ form.onsubmit = (e) => {
             todoItem.style.backgroundColor = "#4aeb4a75";
             todoItem.style.border = "1px solid #289d28";
             todoItem.classList.add("done");
-            statusText.innerHTML= "Done!";
+            statusText.remove();
             statusText.style.color = "#289d28";
             doneSpan.classList.add("active");
             setTimeout(() => {
