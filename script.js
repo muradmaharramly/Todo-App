@@ -113,7 +113,7 @@ form.onsubmit = (e) => {
             }, 800);
             setTimeout(() => {
                 motivationArea.style.display = "none";
-            }, 1500)
+            }, 1000)
         };
 
         counter();
