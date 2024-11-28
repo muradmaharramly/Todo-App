@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (username === savedUsername && password === savedPassword) {
         loginMessage.style.color = "green";
         loginBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
-        loginMessage.textContent = "Successful login! Redirecting...";
+        loginMessage.textContent = "Successfully!!! Redirecting...";
   
         setTimeout(() => {
             window.location.replace("https://todo-app-dynamic.netlify.app/app");
