@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,61 +9,88 @@
     <!--External CSS-->
     <link rel="stylesheet" href="style.css">
     <!--Aos CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <title>Todo App</title>
+    <title>Todo App - Home</title>
 </head>
-<body>
-    <main>
-        <audio class="add-sound" src="sounds/added-sound.mp3"></audio>
-        <audio class="done-sound" src="sounds/Done-sound.mp3"></audio>
-        <audio class="delete-sound" src="sounds/Voicy_Oof.mp3"></audio>
-        <audio class="clear-sound" src="sounds/Clear-sound.mp3"></audio>
-        <audio class="error-sound" src="sounds/error-sound.mp3"></audio>
-        <div class="motivation-area">
-            <h4 class="motivation-text">Lorem ipsum dolor sit amet.</h4>
-            <ion-icon name="play"></ion-icon>
-        </div>
-        <div class="app-container">
-            <div class="head-container">
-                <img src="img/todo-logo.png" alt="">
-                <h2>Todo App</h2>
-            </div>
-            <form action="">
-                <input class="input" type="text" placeholder="Enter your task...">
-                <button class="submit-btn"><ion-icon name="add-outline"></ion-icon></button>
-            </form>
-            <ul class="todo-list">
-                <span class="done-span">Done!</span>
-                <span class="delete-span">Deleted!</span>
-                <span class="clear-span">All Cleared!</span>
-                <span class="error-span">Input can't be empty!</span>
-                <div class="empty"><img src="img/items.png" class="empty-image" alt="empty-image" data-aos="fade-up" data-aos-duration="500">
-                    <img src="img/search-icon.png" class="search-icon" alt="search icon" data-aos="fade-up" data-aos-duration="500">
-                    <h3>You don't have any task</h3>
-                </div>
-                
-            </ul>
-            <div class="container-ending">
-                <p class="item-info">You don't have any task</p>
-                <button class="clear-btn">Clear All</button>
-            </div>
 
-        </div>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="img/todo-logo.png" alt="todo-logo"></a>
+                <a href="index.html">
+                    <h2>Todo App</h2>
+                </a>
+            </div>
+            <div class="elements-div">
+                <a href="login.html" class="btn login changeText">Log in</a>
+                <a href="signup.html" class="btn signup changeText">Sign Up</a>
+
+            </div>
+        </nav>
+    </header>
+    <main class="index-main">
+        <section class="hero">
+            <div class="container">
+                <h2 class="changeText">Stay organized, achieve more effortlessly.</h2>
+                <p class="changeText">Todo App helps you stay organized and productive effortlessly. Manage your tasks, prioritize your goals, and achieve success with ease and confidence every day.</p>
+                <div class="btw">
+                    <div>
+                        <div class="mock-div">
+                            <h4 class="task-mock changeText">Complete today's goals.</h4><span class="changeText">Pending</span>
+                        </div>
+                        <ion-icon class="checkmark" name="checkmark-outline"></ion-icon>
+                        <ion-icon class="trash" name="trash-bin-outline"></ion-icon>
+                        <img src="img/cursor.png" alt="" class="cursor-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cta">
+            <div class="cta-div">
+                <h3 class="changeText">Start now, stay productive!</h3>
+                <a href="" class="btn started changeText">Get started<ion-icon class="arrow-icon"
+                    name="arrow-forward-outline"></ion-icon></a>
+            </div>
+        </section>
+        <footer>
+            <div class="footer-area">
+                <p class="changeText">Developed by <a href="https://www.linkedin.com/in/murad-maharramly/">Murad Maharramli</a></p>
+                <div class="lang-div">
+                    <span class="changeText">Change language</span>
+                    <div class="lang-btn" onclick="changeLanguageAll()">
+                        <img class="flag-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png" alt="lang-change-img">
+                    </div>
+                </div>
+            </div>
+        </footer>
     </main>
-    <!--AOS JS--> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        window.onload = function() {
+        window.onload = function () {
             AOS.init();
         };
-    </script> 
-    <script src="script.js"></script>
+    </script>
+    
+    <script>
+        function changeLanguageAll(){
+            changeLanguageOur();
+            changeLanguageOfMainSite();
+        }
+    </script>
+
+    <script src="js/wordanimate.js"></script>
+    <script src="js/changeLangIndex.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 </body>
+
 </html>

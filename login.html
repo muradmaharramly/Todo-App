@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Favicon-->
+    <link rel="icon" href="img/todo-logo.png" type="image/png">
+    <!--External CSS-->
+    <link rel="stylesheet" href="style.css">
+    <!--Aos CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Login Page</title> 
+</head>
+<body class="login-signup-body">
+    <div class="container">
+        
+        <div class="login-section">
+            <div class="app-intro">
+                <h1>Access Your Universe in Todo App</h1>
+                <div class="change-container">
+                    <p class="reminder">Don't have an account?</p>
+                    <button class="btn change-to-signup">Sign Up</button>
+                </div>
+            </div>
+            
+            <form>
+                <h1 class="title">Login</h1>
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" class="login-username" placeholder="Enter username...">
+                </div>
+                <div class="form-group password">
+                    <label for="login-password">Password</label>
+                    <input type="password" class="login-password password" placeholder="Enter password...">
+                    <ion-icon class="icon" name="eye-off-outline"></ion-icon>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="rememberMe">
+                    <label for="rememberMe">Remember Me</label>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+        </div>
+
+        <div class="signup-section deactive" >
+            
+            <form>
+                <h1 class="title">Sign Up</h1>
+                <div class="form-group">
+                    <label for="signup-email">Email</label>
+                    <input type="email" class="signup-email" placeholder="Email">
+                </div>
+                <div class="form-group password">
+                    <label for="signup-password">Password</label>
+                    <input type="password" class="signup-password password" placeholder="Password">
+                    <ion-icon class="icon" name="eye-off-outline"></ion-icon>
+                </div>
+                <div class="form-group password">
+                    <label for="signup-password confirm">Confirm Password</label>
+                    <input type="password" class="signup-password confirm password" placeholder="Confirm Password">
+                    <ion-icon class="icon icon-2" name="eye-off-outline"></ion-icon>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="acceptTerms">
+                    <label for="acceptTerms">Accept Terms</label>
+                </div>
+                <button type="submit" class="btn sign-up">Sign Up</button>
+            </form>
+            <div class="app-intro">
+                <h1>Create Your Universe in Todo App</h1>
+                <div class="change-container">
+                    <p class="reminder">Already have an account?</p>
+                    <button class="btn change-to-login">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/login-signup.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
