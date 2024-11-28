@@ -40,20 +40,3 @@ signUpEyeIcon2.addEventListener('click', () => {
     }
 });
 
-const mainBody = document.querySelector(".login-signup-body");
-const changeToSignUp = document.querySelector(".change-to-signup");
-const changeToLogIn = document.querySelector(".change-to-login");
-const logInArea = document.querySelector(".login-section");
-const signUpArea = document.querySelector(".signup-section");
-
-changeToSignUp.addEventListener("click", () => {
-    logInArea.classList.add("deactive");
-    signUpArea.classList.remove("deactive");
-    mainBody.style.backgroundImage = "url(img/bg-img-left.png)"
-
-});
-changeToLogIn.addEventListener("click", () => {
-    signUpArea.classList.add("deactive");
-    logInArea.classList.remove("deactive"); 
-    mainBody.style.backgroundImage = "url(img/bg-img-right.png)"
-});

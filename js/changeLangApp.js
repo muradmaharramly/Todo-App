@@ -6,6 +6,9 @@ const langs = {
 const langData = {
     az: [
         "Çıxış", 
+        "Çıxmaq istədiyinə əminsən?",
+        "Bəli",
+        "Xeyr",
         "Tamamlandı!", 
         "Silindi!", 
         "Hamısı təmizləndi!", 
@@ -18,6 +21,9 @@ const langData = {
     ],
     en: [
         "Logout", 
+        "Are you sure you want to log out?",
+        "Yes",
+        "No",
         "Done!", 
         "Deleted!", 
         "All Cleared!", 

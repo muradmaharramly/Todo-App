@@ -23,17 +23,27 @@
                 <a href="home.html"><h2>Todo App</h2></a>
             </div>
             <div class="elements-div">
-                <h4 class="username">Username</h4>
+                <h4 class="app-username">Username</h4>
                 <a href="">
                     <div class="user-profile">
                         <img src="https://i.pinimg.com/736x/11/27/cc/1127cc05230f856fc393ce699a1a1451.jpg" alt="">
                     </div>
                 </a>
-                <a href="" class="btn logout changeText">Logout</a>
+                <a href="#" class="btn logout changeText">Logout</a>
             </div>
         </nav>
     </header>
     <main>
+        <div class="logout-overlay">
+            <div class="alert-container">
+                <h3 class="changeText">Are you sure you want to log out?</h3>
+                <img src="img/bear-danger.png" alt="">
+                <div class="btn-div">
+                    <button class="btn btn-yes changeText">Yes</button>
+                    <button class="btn btn-no changeText">No</button>
+                </div>
+            </div>
+        </div>
         <audio class="add-sound" src="sounds/added-sound.mp3"></audio>
         <audio class="done-sound" src="sounds/Done-sound.mp3"></audio>
         <audio class="delete-sound" src="sounds/Delete-sound.mp3"></audio>
@@ -90,8 +100,8 @@
     </script> 
     <script src="js/script.js"></script>
     <script src="js/changeLangApp.js"></script>
+    <script src="js/auth.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
 </body>
 </html>
