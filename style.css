@@ -1170,7 +1170,7 @@ footer{
 @media (max-width:768px){
     .login-signup-body{
         height: 110vh !important;
-        background: var(--white);
+        background-image: url(https://i.pinimg.com/736x/e5/95/a3/e595a3f9a32a4029869e51caeded5d44.jpg) !important;
     }
     .app-intro{
         align-items: center !important;
