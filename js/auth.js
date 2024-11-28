@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       signupMessage.textContent = "Successful! Redirecting...";
   
       setTimeout(() => {
-        window.location.replace("http://127.0.0.1:5501/login.html?");
+        window.location.replace("https://todo-app-dynamic.netlify.app/login");
       }, 2000);
     });
   });
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         loginMessage.textContent = "Successful! Redirecting...";
   
         setTimeout(() => {
-            window.location.replace("http://127.0.0.1:5501/app.html?");
+            window.location.replace("https://todo-app-dynamic.netlify.app/app");
           }, 2000);
       } else {
         loginMessage.style.color = "red";
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!savedusername || savedusername === "") {
             setTimeout(() => {
                 localStorage.removeItem("username"); 
-                window.location.replace("http://127.0.0.1:5501/index.html"); 
+                window.location.replace("https://todo-app-dynamic.netlify.app"); 
             }, 500); 
         } else {
             appusername.innerHTML = savedusername; 
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
         yesBtn.addEventListener("click", () => {
             logoutOverlay.classList.remove("active");
             setTimeout(() => {
-                window.location.replace("http://127.0.0.1:5501/index.html");
+                window.location.replace("https://todo-app-dynamic.netlify.app");
             }, 500);
         });
         
