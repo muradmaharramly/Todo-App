@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (username === savedUsername && password === savedPassword) {
         loginMessage.style.color = "green";
         loginBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
-        loginMessage.textContent = "Successful! Redirecting...";
+        loginMessage.textContent = "Successful login! Redirecting...";
   
         setTimeout(() => {
             window.location.replace("https://todo-app-dynamic.netlify.app/app");
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("DOMContentLoaded", () => {
     const appusername = document.querySelector(".app-username");
     const savedusername = localStorage.getItem("username");
-    if (window.location.pathname === "/app.html") {    
+    if (window.location.pathname === "/app") {    
         if (!savedusername || savedusername === "") {
             setTimeout(() => {
                 localStorage.removeItem("username"); 
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
             logoutOverlay.classList.remove("active");
             setTimeout(() => {
                 window.location.replace("https://todo-app-dynamic.netlify.app");
-            }, 500);
+            }, 250);
         });
         
         noBtn.addEventListener("click", () => {
