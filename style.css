@@ -658,6 +658,9 @@ header{
         
     }
 }
+main{
+    margin: 2vh;
+}
 @media (max-width:992px){
     nav{
         width: 80% !important;
@@ -673,9 +676,7 @@ header{
         display: none;
     }
 }
-main{
-    margin: 2vh;
-}
+
 .hero{
     width: 100%;
     display: flex;
@@ -987,7 +988,7 @@ footer{
 }
 @media (max-width:768px){
     .index-main{
-        margin-top: 15vh;
+        margin-top: 12vh;
     }
     .btw .checkmark,
     .btw .trash{
