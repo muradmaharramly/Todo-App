@@ -969,10 +969,10 @@ footer{
 }
 @media (max-width:768px){
     .container{
-        width: 95% !important;
+        width: 98% !important;
     }
     .cta-div{
-        width: 92% !important;
+        width: 98% !important;
     }
     .footer-area{
         margin-top: 20px;
