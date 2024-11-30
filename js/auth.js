@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = document.getElementById("signUp-password").value;
     const passwordAgain = document.getElementById("signUp-password-again").value;
 
-    if (password.length < 8) {
+    if (password.length>0 && password.length < 8) {
       kindReminder.style.display = "block";
       if (currentLang === "en") {
         kindReminder.textContent = "Password must be at least 8 characters."
