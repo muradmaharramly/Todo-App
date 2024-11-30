@@ -24,44 +24,50 @@
 
 <body class="signup-body">
     <div class="btn-top-div" data-aos="fade-up" data-aos-duration="1500">
-        <div>
-            <a href="index.html"><ion-icon name="chevron-back-outline"></ion-icon>Back</a>
+        <div class="back-div">
+            <a href="index.html"><ion-icon name="chevron-back-outline"></ion-icon><span class="changeText">Back</span></a>
+        </div>
+        <div class="lang-div">
+            <span class="changeText">Change language</span>
+            <div class="lang-btn" onclick="changeLanguageSignUp()">
+                <img class="flag-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png" alt="lang-change-img">
+            </div>
         </div>
     </div>
     <div class="container">
         <div class="signup-section" data-aos="fade-up" data-aos-duration="1500">
             <p class="password-warning">Password must be at least 8 characters.</p>
             <form>
-                <h1 class="title">Sign Up</h1>
+                <h1 class="title changeText">Sign Up</h1>
                 <div class="form-group">
-                    <label for="signup-username">Username</label>
+                    <label for="signup-username" class="changeText">Username</label>
                     <input type="text" class="signup-username" placeholder="Enter username...">
                 </div>
                 <div class="form-group password">
-                    <label for="signup-password">Password</label>
+                    <label for="signup-password" class="changeText">Password</label>
                     <input type="password" class="signup-password password" id="signUp-password"
                         placeholder="Enter password...">
                     <div class="icon-div"><ion-icon class="icon" name="eye-off-outline"></ion-icon></div>
                 </div>
                 <div class="form-group password">
-                    <label for="signup-password confirm">Confirm Password</label>
+                    <label for="signup-password confirm" class="changeText">Confirm Password</label>
                     <input type="password" class="signup-password confirm password" id="signUp-password-again"
                         placeholder="Enter password again">
                     <div class="icon-div"><ion-icon class="icon icon-2" name="eye-off-outline"></ion-icon></div>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="acceptTerms" required>
-                    <label for="acceptTerms">Accept Terms</label>
+                    <label for="acceptTerms" class="changeText">Accept Terms</label>
                 </div>
-                <a href="#" type="submit" class="btn sign-up">Sign Up</a>
+                <a href="#" type="submit" class="btn sign-up changeText">Sign Up</a>
                 <p class="signup-message"></p>
             </form>
             <div class="app-intro">
-                <h1>Create Your Universe in Todo App</h1>
+                <h1 class="changeText">Create Your Universe in Todo App</h1>
                 <img src="img/todo-logo.png" alt="">
                 <div class="change-container">
-                    <p class="reminder">Already have an account?</p>
-                    <a href="login.html" class="btn change-to-login">Login</a>
+                    <p class="reminder changeText">Already have an account?</p>
+                    <a href="login.html" class="btn change-to-login changeText">Login</a>
                 </div>
             </div>
         </div>
@@ -100,6 +106,7 @@
             AOS.init();
         };
     </script>
+    <script src="js/changesignupLang.js"></script>
     <script src="js/auth.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

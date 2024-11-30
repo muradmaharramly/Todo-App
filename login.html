@@ -24,35 +24,41 @@
 
 <body class="login-body">
     <div class="btn-top-div" data-aos="fade-up" data-aos-duration="1000">
-        <div>
-            <a href="index.html"><ion-icon name="chevron-back-outline"></ion-icon>Back</a>
+        <div class="back-div">
+            <a href="index.html"><ion-icon name="chevron-back-outline"></ion-icon><span class="changeText">Back</span></a>
+        </div>
+        <div class="lang-div">
+            <span class="changeText">Change language</span>
+            <div class="lang-btn" onclick="changeLanguageLogin()">
+                <img class="flag-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png" alt="lang-change-img">
+            </div>
         </div>
     </div>
     <div class="container">
         <div class="login-section" data-aos="fade-up" data-aos-duration="1000">
             <div class="app-intro">
-                <h1>Access Your Universe in Todo App</h1>
+                <h1 class="changeText">Access Your Universe in Todo App</h1>
                 <div class="change-container">
-                    <p class="reminder">Don't have an account?</p>
-                    <a href="signup.html" class="btn change-to-signup">Sign Up</a>
+                    <p class="reminder changeText">Don't have an account?</p>
+                    <a href="signup.html" class="btn change-to-signup changeText">Sign Up</a>
                 </div>
             </div>
             <form>
-                <h1 class="title">Login</h1>
+                <h1 class="title changeText">Login</h1>
                 <div class="form-group">
-                    <label for="login-username">Username</label>
+                    <label for="login-username" class="changeText">Username</label>
                     <input type="text" class="login-username" placeholder="Enter username...">
                 </div>
                 <div class="form-group password">
-                    <label for="login-password">Password</label>
+                    <label for="login-password" class="changeText">Password</label>
                     <input type="password" class="login-password password" placeholder="Enter password...">
                     <div class="icon-div"><ion-icon class="icon" name="eye-off-outline"></ion-icon></div>
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="rememberMe" required>
-                    <label for="rememberMe">Remember Me</label>
+                    <label for="rememberMe" class="changeText">Remember Me</label>
                 </div>
-                <a href="#" type="submit" class="btn login">Login</a>
+                <a href="#" type="submit" class="btn login changeText">Login</a>
                 <p class="login-message"></p>
             </form>
         </div>
@@ -79,6 +85,7 @@
             AOS.init();
         };
     </script>
+    <script src="js/changeloginLang.js"></script>
     <script src="js/auth.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

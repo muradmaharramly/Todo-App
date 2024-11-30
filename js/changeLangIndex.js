@@ -1,8 +1,3 @@
-const langs = {
-    EN: "en",
-    AZ: "az"
-};
-
 const langData = {
     az: [
         "Giriş", 

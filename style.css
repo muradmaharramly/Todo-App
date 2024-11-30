@@ -1009,18 +1009,21 @@ footer{
 /*login-signup css*/
 .btn-top-div{
     display: flex;
-    justify-content: center;
-    div{
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 17%;
+    .back-div{
         box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.13);
-        padding: 15px 20px 10px 18px ;
-        background-color: var(--purple);
-        border-radius: 20px 20px 0px 0px;
-        -webkit-border-radius: 20px 20px 0px 0px;
-        -moz-border-radius: 20px 20px 0px 0px;
-        -ms-border-radius: 20px 20px 0px 0px;
-        -o-border-radius: 20px 20px 0px 0px;
+        padding: 15px 20px 15px 18px ;
+        background-color: var(--white);
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
         a{
-            color: var(--white);
+            color: var(--purple);
+            font-weight: 600;
             text-decoration: none;
             ion-icon{
                 margin-left: -2px;
@@ -1040,6 +1043,40 @@ footer{
                 -o-transform: translateX(-5px);
 }
         }
+    }
+    .lang-div{
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.13);
+        padding: 15px 20px 15px 18px ;
+        background-color: var(--purple);
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+}
+}
+.login-body .btn-top-div{
+    padding: 2% 19%;
+    .back-div{
+        background-color: var(--purple);
+        a{
+            color: var(--white);
+        }
+    }
+    .lang-div{
+        background-color: var(--white);
+        span{
+            color: var(--purple);
+            font-weight: 600;
+        }
+    }
+}
+@media (max-width: 768px){
+    .btn-top-div{
+        padding:10px 0 !important;
+    }
+    .btn-top-div .lang-div span{
+        display: none;
     }
 }
 .login-body,
@@ -1081,7 +1118,7 @@ footer{
                 h1{
                     color: var(--white);
                     font-size: 40px;
-                    max-width: 300px;
+                    max-width: 350px;
                 }
                 img{
                     width: 100px;
@@ -1246,8 +1283,11 @@ footer{
             
     }
 }
+.login-body{
+    padding:  5% 10%;
+}
 .signup-body{
-    padding: 5% 10%;
+    padding: 3% 10%;
 }
 .login-section form button{
     border: 3px solid var(--purple);
