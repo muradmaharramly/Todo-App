@@ -50,14 +50,10 @@ const flags = document.querySelector(".lang-btn img");
 
 function changeLanguageOur(){
     if(flags.src==="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png"){
-        flags.src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png";
-        langButon.style.transform ="rotate(180deg)";
-        texts = wordsAz;  
+        texts = wordsEng;  
     } 
     else{
-        flags.src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png";
-        langButon.style.transform ="rotate(360deg)";
-        texts = wordsEng;
+        texts = wordsAz;
     }
 };
 

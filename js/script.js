@@ -98,12 +98,10 @@ function addTaskToUI(text) {
     btnDiv.append(deleteBtn);
     statusText.innerHTML = "Pending";
     langButn.addEventListener("click", () =>{
-        if(flag.src==="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png"){  
-            flag.src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png";
+        if(currentLang === "en"){  
             statusText.innerHTML ="Pending";
         }
         else{
-            flag.src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png";
             statusText.innerHTML ="Gözləyir";    
         }
     });
