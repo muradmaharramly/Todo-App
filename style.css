@@ -1006,7 +1006,42 @@ footer{
     }
 }
 
-/*login css*/
+/*login-signup css*/
+.btn-top-div{
+    display: flex;
+    justify-content: center;
+    div{
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.13);
+        padding: 15px 20px 10px 18px ;
+        background-color: var(--purple);
+        border-radius: 20px 20px 0px 0px;
+        -webkit-border-radius: 20px 20px 0px 0px;
+        -moz-border-radius: 20px 20px 0px 0px;
+        -ms-border-radius: 20px 20px 0px 0px;
+        -o-border-radius: 20px 20px 0px 0px;
+        a{
+            color: var(--white);
+            text-decoration: none;
+            ion-icon{
+                margin-left: -2px;
+                margin-bottom: -4px;
+                font-size: 20px;
+                transition: all .3s ease;
+                -webkit-transition: all .3s ease;
+                -moz-transition: all .3s ease;
+                -ms-transition: all .3s ease;
+                -o-transition: all .3s ease;
+}
+            &:hover ion-icon{
+                transform: translateX(-5px);
+                -webkit-transform: translateX(-5px);
+                -moz-transform: translateX(-5px);
+                -ms-transform: translateX(-5px);
+                -o-transform: translateX(-5px);
+}
+        }
+    }
+}
 .login-body,
 .signup-body{
     background-image: url(img/bg-img-right.png);
@@ -1211,6 +1246,9 @@ footer{
             
     }
 }
+.signup-body{
+    padding: 5% 10%;
+}
 .login-section form button{
     border: 3px solid var(--purple);
 }
@@ -1244,6 +1282,12 @@ footer{
     -o-border-radius: 4px;
     animation: updown 5s ease;
     -webkit-animation: updown 5s ease;
+}
+@media (max-width:992px){
+    .signup-section,
+    .login-section{
+        flex-direction: column;
+    }
 }
 @media (max-width:768px){
     .login-body,

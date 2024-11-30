@@ -38,120 +38,123 @@ let motivationalMessagesAz = [
     "Kiçik addımlar böyük nailiyyətlərə aparır! 🌱"
 ];
 
-let ChangeText = document.querySelectorAll(".changeText");
 
 const langButn = document.querySelector(".lang-btn");
-const flag = document.querySelector(".lang-btn img");
 let quotes = motivationalMessagesEng;
 
-function changeLanguage(){
-    if(flag.src==="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png"){
-        flag.src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png";
-        langButn.style.transform ="rotate(180deg)";
-        quotes = motivationalMessagesAz;    
-    }
-    else{
-        flag.src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png";
-        langButn.style.transform ="rotate(360deg)";
+langButn.addEventListener("click", () =>{
+    if (currentLang === "en") {
         quotes = motivationalMessagesEng;
+    } else {
+        quotes = motivationalMessagesAz;
     }
+});
+
+function getTasksLS() {
+    return JSON.parse(localStorage.getItem("todos")) || [];
 }
-form.onsubmit = (e) => {
-    e.preventDefault();
+function addTask(todo) {
+    const todos = getTasksLS();
+    todos.push(todo);
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+function removeTask(todoText) {
+    let todos = getTasksLS();
+    todos = todos.filter((todo) => todo !== todoText);
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+document.addEventListener("DOMContentLoaded", () => {
+    const todos = getTasksLS();
+    todos.forEach((todo) => addTaskToUI(todo));
+});
 
-    const text = input.value;
-    if (text === "" || text === " ") {
-        errorSpan.classList.add("active");
-        errorSound.play();
-        setTimeout(() => {
-            errorSpan.classList.remove("active");
-        }, 800);
+function addTaskToUI(text) {
+    addSound.play();
+    const todoItem = document.createElement("li");
+    todoItem.classList.add("todo-item");
+    listArr.push(todoItem);
+    listArr.reverse();
+    console.log(listArr);
+    const btnDiv = document.createElement("div");
+    btnDiv.classList.add("btn-div");
+    const statusText = document.createElement("span");
+    statusText.classList.add("status-text");
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-btn");
+    const doneBtn = document.createElement("button");
+    doneBtn.classList.add("done-btn");
+    todoItem.append(text);
+    for(let i = 0; i<listArr.length; i++){
+        todoList.append(listArr[i]);
     }
-    else {
-        addSound.play();
-        const todoItem = document.createElement("li");
-        todoItem.classList.add("todo-item");
-        listArr.push(todoItem);
-        listArr.reverse();
-        console.log(listArr);
-
-        const btnDiv = document.createElement("div");
-        btnDiv.classList.add("btn-div");
-
-        const statusText = document.createElement("span");
-        statusText.classList.add("status-text");
-
-        const deleteBtn = document.createElement("button");
-        deleteBtn.classList.add("delete-btn");
-
-        const doneBtn = document.createElement("button");
-        doneBtn.classList.add("done-btn");
-
-        todoItem.append(text);
-        for(let i = 0; i<listArr.length; i++){
-            todoList.append(listArr[i]);
+    listArr.forEach((item,index) =>{
+        if(item.classList.contains("done") || item.classList.contains("deleted")){
+            item.remove();
         }
-        listArr.forEach((item,index) =>{
-            if(item.classList.contains("done") || item.classList.contains("deleted")){
-                item.remove();
-            }
-        })
-        todoItem.append(btnDiv);
-        btnDiv.append(statusText);
-        btnDiv.append(doneBtn);
-        btnDiv.append(deleteBtn);
-
-        statusText.innerHTML = "Pending";
-        doneBtn.innerHTML = `<ion-icon name="checkmark-outline"></ion-icon>`;
-        deleteBtn.innerHTML = `<ion-icon name="trash-bin-outline"></ion-icon>`;
-
-        deleteBtn.onclick = () => {
-            deleteSound.play();
-            todoItem.style.backgroundColor = "#e9493b6d";
-            todoItem.style.border = "1px solid #ba3024";
-            todoItem.classList.add("deleted");
-            statusText.remove();
-            statusText.style.color = "#ba3024";
-            deleteSpan.classList.add("active");
-            setTimeout(() => {
-                todoItem.remove();
-                counter();
-            }, 500);
-            setTimeout(() => {
-                deleteSpan.classList.remove("active");
-            }, 800)
-        };
-
-        doneBtn.onclick = () => {
-            doneSound.play();
-            todoItem.style.backgroundColor = "#4aeb4a75";
-            todoItem.style.border = "1px solid #289d28";
-            todoItem.classList.add("done");
-            statusText.remove();
-            statusText.style.color = "#289d28";
-            doneSpan.classList.add("active");
-            const motivationArea = document.querySelector(".motivation-area");
-            const motivationText = document.querySelector(".motivation-text");
-            let ind = Math.round(Math.random() * 10);
-            if (ind < 10) {
-                motivationArea.style.display = "block";
-                motivationText.innerHTML = quotes[ind];
-            }
-            setTimeout(() => {
-                todoItem.remove();
-                counter();
-            }, 500);
-            setTimeout(() => {
-                doneSpan.classList.remove("active");
-            }, 800);
-            setTimeout(() => {
-                motivationArea.style.display = "none";
-            }, 1000)
-        };
-
-        counter();
-        input.value = "";
-    }
+    })
+    todoItem.append(btnDiv);
+    btnDiv.append(statusText);
+    btnDiv.append(doneBtn);
+    btnDiv.append(deleteBtn);
+    statusText.innerHTML = "Pending";
+    langButn.addEventListener("click", () =>{
+        if(flag.src==="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png"){  
+            flag.src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png";
+            statusText.innerHTML ="Pending";
+        }
+        else{
+            flag.src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png";
+            statusText.innerHTML ="Gözləyir";    
+        }
+    });
+    doneBtn.innerHTML = `<ion-icon name="checkmark-outline"></ion-icon>`;
+    deleteBtn.innerHTML = `<ion-icon name="trash-bin-outline"></ion-icon>`;
+    deleteBtn.onclick = () => {
+        deleteSound.play();
+        todoItem.style.backgroundColor = "#e9493b6d";
+        todoItem.style.border = "1px solid #ba3024";
+        todoItem.classList.add("deleted");
+        statusText.remove();
+        statusText.style.color = "#ba3024";
+        deleteSpan.classList.add("active");
+        removeTask(text);
+        setTimeout(() => {
+            todoItem.remove();
+            counter();
+        }, 500);
+        setTimeout(() => {
+            deleteSpan.classList.remove("active");
+        }, 800)
+    };
+    doneBtn.onclick = () => {
+        doneSound.play();
+        todoItem.style.backgroundColor = "#4aeb4a75";
+        todoItem.style.border = "1px solid #289d28";
+        todoItem.classList.add("done");
+        statusText.remove();
+        statusText.style.color = "#289d28";
+        doneSpan.classList.add("active");
+        const motivationArea = document.querySelector(".motivation-area");
+        const motivationText = document.querySelector(".motivation-text");
+        let ind = Math.round(Math.random() * quotes.length);
+        if (ind < 10) {
+            motivationArea.style.display = "block";
+            motivationText.innerHTML = quotes[ind];
+        }
+        setTimeout(() => {
+            removeTask(text);
+            todoItem.remove();
+            counter();
+        }, 500);
+        setTimeout(() => {
+            doneSpan.classList.remove("active");
+        }, 800);
+        setTimeout(() => {
+            motivationArea.style.display = "none";
+        }, 1000)
+    };
+    counter();
+    input.value = "";
 };
 
 clearBtn.onclick = () => {
@@ -171,6 +174,7 @@ clearBtn.onclick = () => {
     setTimeout(() => {
         clearSpan.classList.remove("active");
     }, 800)
+    localStorage.removeItem("todos");
     listArr.length =0;
 };
 
@@ -193,3 +197,20 @@ function counter() {
         empty.classList.remove("blocked");
     }
 }
+
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (text === "") {
+        errorSpan.classList.add("active");
+        errorSound.play();
+        setTimeout(() => {
+            errorSpan.classList.remove("active");
+        }, 800);
+    } else {
+        addSound.play();
+        addTask(text);
+        addTaskToUI(text);
+        input.value = "";
+    }
+};

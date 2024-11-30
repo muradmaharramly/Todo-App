@@ -18,20 +18,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (!username || !password || !passwordAgain) {
-        signupMessage.style.color = "red";
+        signupMessage.style.color = "#ba3024";
         signupMessage.textContent = "All fields are required.";
         return;
       }
   
       if (password !== passwordAgain) {
-        signupMessage.style.color = "red";
+        signupMessage.style.color = "#ba3024";
         signupMessage.textContent = "Passwords don't match.";
         return;
       }
   
       localStorage.setItem("username", username);
       localStorage.setItem("password", password);
-      signupMessage.style.color = "green";
+      signupMessage.style.color = "#289d28";
       signupBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
       signupMessage.textContent = "Successful! Redirecting...";
   
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = document.getElementsByClassName("login-password")[0].value;
   
       if (!username || !password) {
-        loginMessage.style.color = "red";
+        loginMessage.style.color = "#ba3024";
         loginMessage.textContent = "Both fields are required.";
         return;
       }
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const savedPassword = localStorage.getItem("password");
   
       if (username === savedUsername && password === savedPassword) {
-        loginMessage.style.color = "green";
+        loginMessage.style.color = "#289d28";
         loginBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
         loginMessage.textContent = "Successfully!!! Redirecting...";
   
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.replace("https://todo-app-dynamic.netlify.app/app");
           }, 2000);
       } else {
-        loginMessage.style.color = "red";
+        loginMessage.style.color = "#ba3024";
         loginMessage.textContent = "Invalid username/password.";
       }
     });

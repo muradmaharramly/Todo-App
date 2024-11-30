@@ -35,15 +35,33 @@ let changeText = document.querySelectorAll(".changeText");
 const langBtn = document.querySelector(".lang-btn");
 const Flag = document.querySelector(".lang-btn img");
 
-function changeLanguageOfMainSite(){
-    if(Flag.src==="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png"){
-        Flag.src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png";
-        langBtn.style.transform ="rotate(360deg)";
-        changeText.forEach((item,index)=>item.innerHTML=langData.en[index]);
+let currentLang = localStorage.getItem("language") || "en"; 
+
+function applyLanguage(language) {
+    if (localStorage.getItem("language") !== language) {
+        localStorage.setItem("language", language); // Sadece localStorage'da farklı bir dil varsa kaydet
     }
-    else{
-        Flag.src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png";
-        langBtn.style.transform ="rotate(180deg)";
-        changeText.forEach((item,index)=>item.innerHTML=langData.az[index]);
+
+    currentLang = language; 
+    changeText.forEach((item, index) => {
+        item.innerHTML = langData[language][index];
+    });
+
+    if (language === "az") {
+        Flag.src = "https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Flag_of_the_United_Kingdom.svg/2560px-Flag_of_the_United_Kingdom.svg.png";
+    } else {
+        Flag.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png";   
     }
+
+    counter();
 }
+
+function changeLanguageOfMainSite(){
+    if (currentLang === "en") {
+        applyLanguage("az");
+        langBtn.style.transform = "rotate(360deg)";
+    } else {
+        applyLanguage("en");
+        langBtn.style.transform = "rotate(-360deg)";
+    }
+};
