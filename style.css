@@ -345,39 +345,7 @@ body {
     opacity: 1 !important;
 }
 
-.motivation-area{
-    margin-bottom: 60px !important;
-    max-width: 450px;
-    display: none;
-    color: var(--purple-hover);
-    position: relative;
-    background-color: var(--white);
-    text-align: center;
-    padding: 10px;
-    border-radius: 6px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    -ms-border-radius: 6px;
-    -o-border-radius: 6px;
-    animation: up 1.5s ease;
-    -webkit-animation: up 1.5s ease;
-    transition: all .3s ease;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-}
-.motivation-area ion-icon{
-    font-size: 28px;
-    color: var(--white);
-    position: absolute;
-    bottom: -20px;
-    transform: rotate(90deg);
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-}
+
 @media (max-width:768px){
     .app-container{
         margin-top: 50px !important;
@@ -401,9 +369,6 @@ body {
 @media (max-width:450px){
     .app-container{
         width: 95% !important; 
-    }
-    .motivation-area{
-        width: 95% !important;
     }
     .error-span{
         left: 10px;
@@ -1307,13 +1272,14 @@ footer{
     bottom: 20px;
     left: 22%;
 }
-.password-warning{
+.kind-reminder-login,
+.kind-reminder{
     display: none;
     z-index: 999;
     position: absolute;
     padding: 5px 10px;
     top: -40px;
-    left: 25px;
+    left: 26px;
     color: var(--white);
     background-color: var(--red);
     border-radius: 4px;
@@ -1323,6 +1289,9 @@ footer{
     -o-border-radius: 4px;
     animation: updown 5s ease;
     -webkit-animation: updown 5s ease;
+}
+.kind-reminder-login{
+    left:25%
 }
 @media (max-width:992px){
     .signup-section,
@@ -1357,8 +1326,11 @@ footer{
     .signup-body .app-intro{
         margin-top: -30px;
     }
-    .password-warning{
-        left: 5px;
+    .kind-reminder-login{
+        left: 2px;
+    }
+    .kind-reminder{
+        left: 6px;
         top: -20px;
     }
     .login-message{
@@ -1493,4 +1465,39 @@ footer{
 }
 .logout-overlay.active{
     display: flex;
+}
+
+.succes-overlay{
+    background-color: #ffffff00;
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    margin-top: -150px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    .alert-container{
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.186);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        h3{
+            color: var(--purple);
+            text-align: center;
+            max-width: 150px;
+        }
+        img{
+            width: 200px;
+        }
+    }
 }

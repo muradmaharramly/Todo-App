@@ -19,7 +19,7 @@ let currentLang = localStorage.getItem("language") || "en";
 
 function applyLanguage(language) {
     if (localStorage.getItem("language") !== language) {
-        localStorage.setItem("language", language); // Sadece localStorage'da farklı bir dil varsa kaydet
+        localStorage.setItem("language", language); 
     }
 
     currentLang = language; 
@@ -52,3 +52,6 @@ function changeLanguageLogin() {
         PasswordInput.placeholder = "Enter password...";
     }
 }
+document.addEventListener("DOMContentLoaded", () => {
+    applyLanguage(currentLang);
+});

@@ -1,115 +1,164 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const signupBtn = document.getElementsByClassName("sign-up")[0];
-    const signupMessage = document.getElementsByClassName("signup-message")[0];
-    const passowrdWarning = document.querySelector(".password-warning");
-  
-    signupBtn.addEventListener("click", () => {
-      const username = document.getElementsByClassName("signup-username")[0].value;
-      const password = document.getElementById("signUp-password").value;
-      const passwordAgain = document.getElementById("signUp-password-again").value;
-      
-      if (password.length < 8) {
-        signupMessage.style.color = "red";
-        passowrdWarning.style.display = "block";
-        setTimeout( () => {
-            passowrdWarning.style.display = "none";
-        }, 4000)
-        return;
-      }
+  const signupBtn = document.getElementsByClassName("sign-up")[0];
+  const kindReminder = document.querySelector(".kind-reminder");
 
-      if (!username || !password || !passwordAgain) {
-        signupMessage.style.color = "#ba3024";
-        signupMessage.textContent = "All fields are required.";
-        return;
+  signupBtn.addEventListener("click", () => {
+    const username = document.getElementsByClassName("signup-username")[0].value;
+    const password = document.getElementById("signUp-password").value;
+    const passwordAgain = document.getElementById("signUp-password-again").value;
+
+    if (password.length < 8) {
+      kindReminder.style.display = "block";
+      if (currentLang === "en") {
+        kindReminder.textContent = "Password must be at least 8 characters."
       }
-  
-      if (password !== passwordAgain) {
-        signupMessage.style.color = "#ba3024";
-        signupMessage.textContent = "Passwords don't match.";
-        return;
+      else {
+        kindReminder.textContent = "Şifrə ən az 8 simvoldan ibarət olmalıdır."
       }
-  
-      localStorage.setItem("username", username);
-      localStorage.setItem("password", password);
-      signupMessage.style.color = "#289d28";
-      signupBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
-      signupMessage.textContent = "Successful! Redirecting...";
-  
       setTimeout(() => {
-        window.location.replace("https://todo-app-dynamic.netlify.app/login");
-      }, 2000);
-    });
-  });
-  
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const loginBtn = document.getElementsByClassName("login")[0];
-    const loginMessage = document.getElementsByClassName("login-message")[0];
-
-    if (!loginBtn || !loginMessage) {
-      console.log("Login button or message element not found.");
+        kindReminder.style.display = "none";
+      }, 4000)
       return;
     }
-  
-    loginBtn.addEventListener("click", () => {
-      const username = document.getElementsByClassName("login-username")[0].value;
-      const password = document.getElementsByClassName("login-password")[0].value;
-  
-      if (!username || !password) {
-        loginMessage.style.color = "#ba3024";
-        loginMessage.textContent = "Both fields are required.";
-        return;
-      }
-  
-      const savedUsername = localStorage.getItem("username");
-      const savedPassword = localStorage.getItem("password");
-  
-      if (username === savedUsername && password === savedPassword) {
-        loginMessage.style.color = "#289d28";
-        loginBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
-        loginMessage.textContent = "Successfully!!! Redirecting...";
-  
-        setTimeout(() => {
-            window.location.replace("https://todo-app-dynamic.netlify.app/app");
-          }, 2000);
-      } else {
-        loginMessage.style.color = "#ba3024";
-        loginMessage.textContent = "Invalid username/password.";
-      }
-    });
-  });
-  document.addEventListener("DOMContentLoaded", () => {
-    const appusername = document.querySelector(".app-username");
-    const savedusername = localStorage.getItem("username");
-    if (window.location.pathname === "/app") {    
-        if (!savedusername || savedusername === "") {
-            setTimeout(() => {
-                localStorage.removeItem("username"); 
-                window.location.replace("https://todo-app-dynamic.netlify.app"); 
-            }, 500); 
-        } else {
-            appusername.innerHTML = savedusername; 
-        }
-    }
-    
 
-    const logoutBtn = document.querySelector(".logout");
-    const logoutOverlay = document.querySelector(".logout-overlay");
-    const yesBtn = document.querySelector(".btn-yes");
-    const noBtn = document.querySelector(".btn-no");
-    logoutBtn.addEventListener("click", () =>{
-        logoutOverlay.classList.add("active");
-        yesBtn.addEventListener("click", () => {
-            logoutOverlay.classList.remove("active");
-            setTimeout(() => {
-                window.location.replace("https://todo-app-dynamic.netlify.app");
-            }, 250);
-        });
-        
-        noBtn.addEventListener("click", () => {
-            logoutOverlay.classList.remove("active");
-        });   
-        
-    })
+    if (!username || !password || !passwordAgain) {
+      kindReminder.style.display = "block";
+      if (currentLang === "en") {
+        kindReminder.textContent = "All of this fields are required.Please fill."   
+      } else {
+        kindReminder.textContent = "Bütün xanaları doldurmaq məcburidir."
+      }
+      setTimeout(() => {
+        kindReminder.style.display = "none";
+      }, 4000)
+      return;
+    }
+
+    if (password !== passwordAgain) {
+      kindReminder.style.display = "block";
+      if (currentLang === "en") {
+        kindReminder.textContent = "Passwords don't match.Fill them carefully."   
+      } else {
+        kindReminder.textContent = "Şifrələr bir-biriylə uyuşmur.Diqqətli yazın."
+      }
+      setTimeout(() => {
+        kindReminder.style.display = "none";
+      }, 4000)
+      return;
+    }
+
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+    signupBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
+    kindReminder.style.display = "block";
+    kindReminder.style.backgroundColor = "#289d28";
+      if (currentLang === "en") {
+        kindReminder.textContent = "Succesfull singup! You are redirecting..."   
+      } else {
+        kindReminder.textContent = "Uğurla qeydiyyat etdiniz!Yönləndirirlir..."
+      }
+      setTimeout(() => {
+        kindReminder.style.display = "none";
+        kindReminder.style.backgroundColor = "#ba3024";
+      }, 4000)
+
+    setTimeout(() => {
+      window.location.replace("https://todo-app-dynamic.netlify.app/login");
+    }, 2000);
   });
-  
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementsByClassName("login")[0];
+  const kindlyReminder = document.querySelector(".kind-reminder-login");
+
+  if (!loginBtn) {
+    console.log("Login button or message element not found.");
+    return;
+  }
+
+  loginBtn.addEventListener("click", () => {
+    const username = document.getElementsByClassName("login-username")[0].value;
+    const password = document.getElementsByClassName("login-password")[0].value;
+
+    if (!username || !password) {
+      kindlyReminder.style.display = "block";
+      if (currentLang === "en") {
+        kindlyReminder.textContent = "Both of this fields are required.Please fill."   
+      } else {
+        kindlyReminder.textContent = "Hər iki xananı doldurmaq məcburidir."
+      }
+      setTimeout(() => {
+        kindlyReminder.style.display = "none";
+        kindlyReminder.style.backgroundColor = "#ba3024";
+      }, 4000)
+      return;
+    }
+
+    const savedUsername = localStorage.getItem("username");
+    const savedPassword = localStorage.getItem("password");
+
+    if (username === savedUsername && password === savedPassword) {
+      loginBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
+      kindlyReminder.style.display = "block";
+      kindlyReminder.style.backgroundColor = "#289d28";
+      if (currentLang === "en") {
+        kindlyReminder.textContent = "Succesfull login! You are redirecting..."   
+      } else {
+        kindlyReminder.textContent = "Uğurla giriş etdiniz.Yönləndirirlir..."
+      }
+      setTimeout(() => {
+        kindlyReminder.style.display = "none";
+      }, 4000);
+
+      setTimeout(() => {
+        window.location.replace("https://todo-app-dynamic.netlify.app/app");
+      }, 2000);
+    } else {
+      kindlyReminder.style.display = "block";
+      if (currentLang === "en") {
+        kindlyReminder.textContent = "Username or password incorrect. Be carefull!"   
+      } else {
+        kindlyReminder.textContent = "Istifadəçi adı və ya şifrə yanlışdır!"
+      };
+      setTimeout(() => {
+        kindlyReminder.style.display = "none";
+      }, 4000)
+    }
+  });
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const appusername = document.querySelector(".app-username");
+  const savedusername = localStorage.getItem("username");
+  if (window.location.pathname === "/app") {
+    if (!savedusername || savedusername === "") {
+      setTimeout(() => {
+        localStorage.removeItem("username");
+        window.location.replace("https://todo-app-dynamic.netlify.app");
+      }, 500);
+    } else {
+      appusername.innerHTML = savedusername;
+    }
+  }
+
+
+  const logoutBtn = document.querySelector(".logout");
+  const logoutOverlay = document.querySelector(".logout-overlay");
+  const yesBtn = document.querySelector(".btn-yes");
+  const noBtn = document.querySelector(".btn-no");
+  logoutBtn.addEventListener("click", () => {
+    logoutOverlay.classList.add("active");
+    yesBtn.addEventListener("click", () => {
+      logoutOverlay.classList.remove("active");
+      setTimeout(() => {
+        window.location.replace("https://todo-app-dynamic.netlify.app");
+      }, 250);
+    });
+
+    noBtn.addEventListener("click", () => {
+      logoutOverlay.classList.remove("active");
+    });
+
+  })
+});

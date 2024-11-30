@@ -50,10 +50,10 @@ const flags = document.querySelector(".lang-btn img");
 
 function changeLanguageOur(){
     if(flags.src==="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png"){
-        texts = wordsEng;  
+        texts = wordsAz;  
     } 
     else{
-        texts = wordsAz;
+        texts = wordsEng;
     }
 };
 

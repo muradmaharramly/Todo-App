@@ -4,6 +4,7 @@ const langData = {
         "Çıxmaq istədiyinə əminsən?",
         "Bəli",
         "Xeyr",
+        "Əlasan! Belə davam et!",
         "Tamamlandı!",
         "Silindi!",
         "Hamısı təmizləndi!",
@@ -19,6 +20,7 @@ const langData = {
         "Are you sure you want to log out?",
         "Yes",
         "No",
+        "Your are perfect! Keep going!",
         "Done!",
         "Deleted!",
         "All Cleared!",
@@ -40,7 +42,7 @@ let currentLang = localStorage.getItem("language") || "en";
 
 function applyLanguage(language) {
     if (localStorage.getItem("language") !== language) {
-        localStorage.setItem("language", language); // Sadece localStorage'da farklı bir dil varsa kaydet
+        localStorage.setItem("language", language); 
     }
 
     currentLang = language; 

@@ -12,43 +12,11 @@ const doneSpan = document.querySelector(".done-span");
 const deleteSpan = document.querySelector(".delete-span");
 const clearSpan = document.querySelector(".clear-span");
 const errorSpan = document.querySelector(".error-span");
+const succesOverlay = document.querySelector(".succes-overlay");
 const listArr = [];
-let motivationalMessagesEng = [
-    "Great job! Keep pushing forward! 💪",
-    "Another task down, you're unstoppable! 🚀",
-    "You're making amazing progress! 🌟",
-    "Every step counts. Well done! 👏",
-    "You're on fire! Keep it up! 🔥",
-    "Success is built on small victories like this! 🏆",
-    "Look at you go! You're doing fantastic! 🌈",
-    "Another win for the day! 🌟",
-    "You're proving how capable you are! 💼",
-    "Small steps lead to big achievements! 🌱"
-];
-let motivationalMessagesAz = [
-    "Əla iş! Davam et, irəlilə! 💪",
-    "Bir tapşırıq daha bitdi, dayanıqsızsan! 🚀",
-    "İnanılmaz irəliləyişlər edirsən! 🌟",
-    "Hər addım önəmlidir. Afərin! 👏",
-    "Alovlanırsan! Davam et! 🔥",
-    "Uğur, kiçik qələbələrdən qurulur! 🏆",
-    "Bax, necə gedirsən! Əla iş görürsən! 🌈",
-    "Bu gün bir daha qələbə qazandın! 🌟",
-    "Nə qədər bacarıqlı olduğunu sübut edirsən! 💼",
-    "Kiçik addımlar böyük nailiyyətlərə aparır! 🌱"
-];
-
 
 const langButn = document.querySelector(".lang-btn");
-let quotes = motivationalMessagesEng;
 
-langButn.addEventListener("click", () =>{
-    if (currentLang === "en") {
-        quotes = motivationalMessagesEng;
-    } else {
-        quotes = motivationalMessagesAz;
-    }
-});
 
 function getTasksLS() {
     return JSON.parse(localStorage.getItem("todos")) || [];
@@ -132,13 +100,7 @@ function addTaskToUI(text) {
         statusText.remove();
         statusText.style.color = "#289d28";
         doneSpan.classList.add("active");
-        const motivationArea = document.querySelector(".motivation-area");
-        const motivationText = document.querySelector(".motivation-text");
-        let ind = Math.round(Math.random() * quotes.length);
-        if (ind < 10) {
-            motivationArea.style.display = "block";
-            motivationText.innerHTML = quotes[ind];
-        }
+        succesOverlay.style.display = "flex";
         setTimeout(() => {
             removeTask(text);
             todoItem.remove();
@@ -148,8 +110,8 @@ function addTaskToUI(text) {
             doneSpan.classList.remove("active");
         }, 800);
         setTimeout(() => {
-            motivationArea.style.display = "none";
-        }, 1000)
+            succesOverlay.style.display = "none";
+        }, 2000);
     };
     counter();
     input.value = "";
