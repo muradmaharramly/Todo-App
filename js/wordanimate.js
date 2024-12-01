@@ -75,3 +75,12 @@ function fillmock() {
     }, 4000);
 }
 fillmock();
+
+document.addEventListener("DOMContentLoaded", () => {
+    const preloader = document.querySelector(".pre-loader");
+    preloader.style.display = "flex";
+
+    setTimeout(() => {
+        preloader.style.display = "none";
+    }, 1000);
+});

@@ -21,17 +21,18 @@
     <title>Todo App</title>
 </head>
 <body>
+    <div class="pre-loader"><div class="pre-load-circle1"></div><div class="pre-load-circle2"></div></div>
     <header>
-        <nav data-aos="fade-down" data-aos-duration="1000">
+        <nav data-aos="fade-down" data-aos-duration="2000">
             <div class="logo">
                 <a href="app.html"><img src="img/todo-logo.png" alt="todo-logo"></a>
                 <a href="app.html"><h2>Todo App</h2></a>
             </div>
             <div class="elements-div">
                 <h4 class="app-username">Username</h4>
-                <a href="">
-                    <div class="user-profile">
-                        <img src="https://i.pinimg.com/736x/11/27/cc/1127cc05230f856fc393ce699a1a1451.jpg" alt="">
+                <a href="user-profile.html">
+                    <div class="user-profile nav">
+                        <img class="profile-nav" src="https://i.pinimg.com/736x/11/27/cc/1127cc05230f856fc393ce699a1a1451.jpg" alt="">
                     </div>
                 </a>
                 <a href="#" class="btn logout changeText">Logout</a>
@@ -39,7 +40,7 @@
         </nav>
     </header>
     <main class="app-main">
-        <div class="logout-overlay">
+        <div class="logout-overlay custom">
             <div class="alert-container">
                 <h3 class="changeText">Are you sure you want to log out?</h3>
                 <img src="img/bear-danger.png" alt="">
@@ -49,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="succes-overlay">
+        <div class="succes-overlay custom">
             <div class="alert-container">
                 <h3 class="changeText">Your are perfect! Keep going!</h3>
                 <img src="img/happy-bear.gif" alt="">
@@ -62,8 +63,11 @@
         <audio class="error-sound" src="sounds/error-sound.mp3"></audio>
         <div class="app-container">
             <div class="head-container">
-                <img src="img/todo-logo.png" alt="">
-                <h2>Todo App</h2>
+                <div>
+                    <img src="img/todo-logo.png" alt="">
+                    <h2>Todo App</h2>
+                </div>
+                <a href="user-profile.html" class="btn changeText">See Profile <ion-icon name="chevron-forward-outline"></ion-icon></a>
             </div>
             <form action="">
                 <input class="input" type="text" placeholder="Enter your task...">

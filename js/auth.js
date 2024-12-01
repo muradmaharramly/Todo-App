@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
-    signupBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
+    signupBtn.innerHTML = "<div class=\"loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
     kindReminder.style.display = "block";
     kindReminder.style.backgroundColor = "#289d28";
       if (currentLang === "en") {
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedPassword = localStorage.getItem("password");
 
     if (username === savedUsername && password === savedPassword) {
-      loginBtn.innerHTML = "<div class=\"pre-loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
+      loginBtn.innerHTML = "<div class=\"loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
       kindlyReminder.style.display = "block";
       kindlyReminder.style.backgroundColor = "#289d28";
       if (currentLang === "en") {
