@@ -1364,6 +1364,14 @@ footer{
     .login-message{
         left: 15% !important;
     }
+    .head-container{
+        .btn ion-icon{
+            display: none !important;
+        }
+    }
+    .pre-loader{
+        margin-top: -100px !important;
+    }
 }
 @keyframes loader{
     0%{
