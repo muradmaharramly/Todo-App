@@ -1527,11 +1527,11 @@ footer{
 }
 .pre-loader .pre-load-circle1{
     border-radius: 20%;
+    position: absolute;
     border: 3px solid var(--white);
     width: 45px;
     height: 45px;
-    rotate: 90deg;
-    margin-bottom: 70px;
+    top: 48vh;
     -webkit-border-radius: 20%;
     -moz-border-radius: 20%;
     -ms-border-radius: 20%;
@@ -1541,11 +1541,11 @@ footer{
 }
 .pre-loader .pre-load-circle2{
     border-radius: 20%;
+    position: absolute;
     border: 3px solid var(--white);
     width: 45px;
     height: 45px;
-    margin-left: -45px;
-    margin-bottom: 70px;
+    top: 48vh;
     rotate: -45deg;
     -webkit-border-radius: 20%;
     -moz-border-radius: 20%;
@@ -1553,6 +1553,14 @@ footer{
     -o-border-radius: 20%;
     animation: 1s infinite spin;
     -webkit-animation: 1s infinite spin;
+}
+.index-main{
+    .pre-loader{
+        .pre-load-circle1,
+        .pre-load-circle2{
+            top: 40vh !important;
+        }
+    }
 }
 .loader{
     background-color: transparent;
