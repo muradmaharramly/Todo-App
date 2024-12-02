@@ -1930,7 +1930,7 @@ footer{
 }
 .beginner-icon{
     background-color: silver;
-    display: none;
+    display: inline;
 }
 .middle-icon{
     background-color: aqua;

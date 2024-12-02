@@ -12,14 +12,14 @@ function getPoints() {
 
 function updatePoint() {
     usernametext.innerHTML = window.localStorage.getItem("username") || "Username";
-    const points = getPoints(); 
+    let points = getPoints(); 
     pointText.innerHTML = points;
     
     if (!points) {
         points = 0;
         window.localStorage.setItem("DoneCount", points);
     }
-    else if (points > 0 && points <= 50) {
+    else if (points >= 0 && points <= 50) {
         StatusContent.innerHTML = "Beginner";
         beginnerIcon.style.display = "inline";
         middleIcon.style.display = "none";
