@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!username || !password || !passwordAgain) {
       kindReminder.style.display = "block";
       if (currentLang === "en") {
-        kindReminder.textContent = "All of this fields are required.Please fill."   
+        kindReminder.textContent = "All of this fields are required.Please fill them."   
       } else {
-        kindReminder.textContent = "Bütün xanaları doldurmaq məcburidir."
+        kindReminder.textContent = "Bütün xanaları doldurmaq məcburidir.Doldurun."
       }
       setTimeout(() => {
         kindReminder.style.display = "none";
@@ -53,9 +53,9 @@ document.addEventListener("DOMContentLoaded", () => {
     kindReminder.style.display = "block";
     kindReminder.style.backgroundColor = "#289d28";
       if (currentLang === "en") {
-        kindReminder.textContent = "Succesfull singup! You are redirecting..."   
+        kindReminder.textContent = "Succesfull singup! You are redirecting right now..."   
       } else {
-        kindReminder.textContent = "Uğurla qeydiyyat etdiniz!Yönləndirirlir..."
+        kindReminder.textContent = "Uğurla qeydiyyat etdiniz!İndi yönləndirirlirsiniz..."
       }
       setTimeout(() => {
         kindReminder.style.display = "none";
@@ -85,9 +85,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!username || !password) {
       kindlyReminder.style.display = "block";
       if (currentLang === "en") {
-        kindlyReminder.textContent = "Both of this fields are required.Please fill."   
+        kindlyReminder.textContent = "Both of this fields are required.Please fill them."   
       } else {
-        kindlyReminder.textContent = "Hər iki xananı doldurmaq məcburidir."
+        kindlyReminder.textContent = "Hər iki xananı doldurmaq məcburidir.Doldurun."
       }
       setTimeout(() => {
         kindlyReminder.style.display = "none";
@@ -104,9 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
       kindlyReminder.style.display = "block";
       kindlyReminder.style.backgroundColor = "#289d28";
       if (currentLang === "en") {
-        kindlyReminder.textContent = "Succesfull login! You are redirecting..."   
+        kindlyReminder.textContent = "Succesfull login! You are redirecting right now..."   
       } else {
-        kindlyReminder.textContent = "Uğurla giriş etdiniz.Yönləndirirlir..."
+        kindlyReminder.textContent = "Uğurla giriş etdiniz.İndi yönləndirirlirsiniz..."
       }
       setTimeout(() => {
         kindlyReminder.style.display = "none";
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (currentLang === "en") {
         kindlyReminder.textContent = "Username or password incorrect. Be carefull!"   
       } else {
-        kindlyReminder.textContent = "Istifadəçi adı və ya şifrə yanlışdır!"
+        kindlyReminder.textContent = "Istifadəçi adı və ya şifrə yanlışdır!Diqqətli ol!"
       };
       setTimeout(() => {
         kindlyReminder.style.display = "none";

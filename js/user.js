@@ -75,7 +75,7 @@ window.addEventListener("storage", (event) => {
         updateLevel();     
     }
 });
-
+//
 
 document.addEventListener("DOMContentLoaded", () => {
     updatePoint();

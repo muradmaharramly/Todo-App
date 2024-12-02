@@ -8,6 +8,12 @@ const langData = {
         "Gözləyir",
         "İndi başlayın, məhsuldar olun!", 
         "Başlayın <ion-icon class=\"arrow-icon\" name=\"arrow-forward-outline\"></ion-icon>", 
+        "Səviyyənizi yüksəldin!",
+        "Sistemimizin necə işlədiyini öyrənin.",
+        "Tapşırıqları tamamlayaraq xal qazanın və irəliləyişinizi izləyin.",
+        "Topladığınız xallarla səviyyəniz artır, bu isə sizin məhsuldarlığınızı və sədaqətinizi göstərir.",
+        "Statusunuz da dəyişir! <span class=\"beginner\">Başlanğıc</span> olaraq başlayın, <span class=\"middle\">Orta</span> səviyyəyə yüksəlin və <span class=\"pro\">Peşəkar</span> olmaq üçün çalışın.",
+        "Nə qədər çox uğur qazansanız, bir o qədər yüksək zirvələrə çatarsınız! Tapşırıqlarınızı idarə edin, nailiyyətlərinizi izləyin və profilinizin dinamik şəkildə böyüdüyünü görün. <a href=\"login.html\">Gəlin, hər tapşırığı dəyərli edək!</a> 🌟",
         "<a href=\"https://www.linkedin.com/in/murad-maharramly/\">Murad Mahərrəmli</a> tərəfindən hazırlanmışdır", 
         "Dili dəyişdir"
     ],
@@ -20,6 +26,12 @@ const langData = {
         "Pending",
         "Start now, stay productive!", 
         "Get started <ion-icon class=\"arrow-icon\" name=\"arrow-forward-outline\"></ion-icon>", 
+        "Level Up Your Journey!",
+        "Here’s how our system works",
+        "Complete tasks and earn points to track your progress.",
+        "As you collect points, your level increases, showcasing your productivity and dedication.",
+        "Your status evolves too! Start as a <span class=\"beginner\">Beginner</span>, advance to <span class=\"middle\">Middle</span>, and strive to become a <span class=\"pro\">Professional</span>.",
+        "The more you accomplish, the higher you climb! Manage tasks, track your achievements, and watch your profile grow dynamically. <a href=\"login.html\">Let’s make every task count!</a> 🌟",
         "Developed by <a href=\"https://www.linkedin.com/in/murad-maharramly/\">Murad Maharramli</a>", 
         "Change language"
     ]
