@@ -126,12 +126,12 @@ saveButton.addEventListener("click", () => {
         uploadSuccesOverlay.style.display = "flex";
         setTimeout(() =>{
             uploadSuccesOverlay.style.display = "none";
-        },1000);
+        },2000);
     } else {
         uploadErrorOverlay.style.display = "flex";
         setTimeout(() =>{
             uploadErrorOverlay.style.display = "none";
-        },1000);
+        },2000);
         updateProfileImage(); 
     };
 });

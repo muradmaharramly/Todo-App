@@ -9,7 +9,7 @@ const langData = {
         "İndi başlayın, məhsuldar olun!", 
         "Başlayın <ion-icon class=\"arrow-icon\" name=\"arrow-forward-outline\"></ion-icon>", 
         "Səviyyənizi yüksəldin!",
-        "Sistemimizin necə işlədiyini öyrənin.",
+        "Sistemimizin necə işləyir.",
         "Tapşırıqları tamamlayaraq xal qazanın və irəliləyişinizi izləyin.",
         "Topladığınız xallarla səviyyəniz artır, bu isə sizin məhsuldarlığınızı və sədaqətinizi göstərir.",
         "Statusunuz da dəyişir! <span class=\"beginner\">Başlanğıc</span> olaraq başlayın, <span class=\"middle\">Orta</span> səviyyəyə yüksəlin və <span class=\"pro\">Peşəkar</span> olmaq üçün çalışın.",
