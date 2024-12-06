@@ -628,18 +628,18 @@ header{
                 border: 2px solid var(--purple-hover);
                 width: 40px;
                 height: 40px;
-                border-radius: 50px;
-                -webkit-border-radius: 50px;
-                -moz-border-radius: 50px;
-                -ms-border-radius: 50px;
-                -o-border-radius: 50px;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                -ms-border-radius: 50%;
+                -o-border-radius: 50%;
                 overflow: hidden;
                 transition: all .3s ease;
                 -webkit-transition: all .3s ease;
                 -moz-transition: all .3s ease;
                 -ms-transition: all .3s ease;
                 -o-transition: all .3s ease;
-                &:hover {
+                &:hover{
                     transform: scale(0.95);
                     -webkit-transform: scale(0.95);
                     -moz-transform: scale(0.95);
