@@ -72,6 +72,19 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const loginBtn = document.getElementsByClassName("login")[0];
   const kindlyReminder = document.querySelector(".kind-reminder-login");
+  const rememberMeCheckbox = document.querySelector(".rememberMe");
+  const usernameInput = document.getElementsByClassName("login-username")[0];
+  const passwordInput = document.getElementsByClassName("login-password")[0];
+
+  const savedUsername = localStorage.getItem("username");
+  const savedPassword = localStorage.getItem("password");
+  const isRemembered = localStorage.getItem("rememberMe") === "true";
+
+  if (isRemembered && savedUsername && savedPassword) {
+    usernameInput.value = savedUsername;
+    passwordInput.value = savedPassword;
+    rememberMeCheckbox.checked = true;
+  }
 
   if (!loginBtn) {
     console.log("Login button or message element not found.");
@@ -79,20 +92,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   loginBtn.addEventListener("click", () => {
-    const username = document.getElementsByClassName("login-username")[0].value;
-    const password = document.getElementsByClassName("login-password")[0].value;
+    const username = usernameInput.value;
+    const password = passwordInput.value;
 
     if (!username || !password) {
       kindlyReminder.style.display = "block";
       if (currentLang === "en") {
-        kindlyReminder.textContent = "Both of this fields are required.Please fill them."   
+        kindlyReminder.textContent = "Both of these fields are required. Please fill them.";
       } else {
-        kindlyReminder.textContent = "Hər iki xananı doldurmaq məcburidir.Doldurun."
+        kindlyReminder.textContent = "Hər iki xananı doldurmaq məcburidir. Doldurun.";
       }
       setTimeout(() => {
         kindlyReminder.style.display = "none";
         kindlyReminder.style.backgroundColor = "#ba3024";
-      }, 4000)
+      }, 4000);
       return;
     }
 
@@ -100,13 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const savedPassword = localStorage.getItem("password");
 
     if (username === savedUsername && password === savedPassword) {
-      loginBtn.innerHTML = "<div class=\"loader\"><div class=\"pre-load-circle1\"></div><div class=\"pre-load-circle2\"></div></div>";
+      loginBtn.innerHTML = `<div class="loader"><div class="pre-load-circle1"></div><div class="pre-load-circle2"></div></div>`;
       kindlyReminder.style.display = "block";
       kindlyReminder.style.backgroundColor = "#289d28";
       if (currentLang === "en") {
-        kindlyReminder.textContent = "Succesfull login! You are redirecting right now..."   
+        kindlyReminder.textContent = "Successful login! You are redirecting right now...";
       } else {
-        kindlyReminder.textContent = "Uğurla giriş etdiniz.İndi yönləndirirlirsiniz..."
+        kindlyReminder.textContent = "Uğurla giriş etdiniz. İndi yönləndirirlirsiniz...";
       }
       setTimeout(() => {
         kindlyReminder.style.display = "none";
@@ -115,19 +128,27 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         window.location.replace("https://todo-app-dynamic.netlify.app/app");
       }, 2000);
+
+      // Remember Me checked ise bilgileri kaydet
+      if (rememberMeCheckbox.checked) {
+        localStorage.setItem("rememberMe", "true");
+      } else {
+        localStorage.setItem("rememberMe", "false");
+      }
     } else {
       kindlyReminder.style.display = "block";
       if (currentLang === "en") {
-        kindlyReminder.textContent = "Username or password incorrect. Be carefull!"   
+        kindlyReminder.textContent = "Username or password incorrect. Be careful!";
       } else {
-        kindlyReminder.textContent = "Istifadəçi adı və ya şifrə yanlışdır!Diqqətli ol!"
-      };
+        kindlyReminder.textContent = "Istifadəçi adı və ya şifrə yanlışdır! Diqqətli ol!";
+      }
       setTimeout(() => {
         kindlyReminder.style.display = "none";
-      }, 4000)
+      }, 4000);
     }
   });
 });
+
 document.addEventListener("DOMContentLoaded", () => {
   const appusername = document.querySelector(".app-username");
   const savedusername = localStorage.getItem("username");
@@ -141,7 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
       appusername.innerHTML = savedusername;
     }
   }
-
 
   const logoutBtn = document.querySelector(".logout");
   const logoutOverlay = document.querySelector(".logout-overlay");
@@ -159,6 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
     noBtn.addEventListener("click", () => {
       logoutOverlay.classList.remove("active");
     });
-
-  })
+  });
 });
+
