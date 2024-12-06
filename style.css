@@ -90,6 +90,12 @@ body {
                 background-color: var(--purple);
                 text-decoration: none;
                 color: var(--white);
+                font-weight: 600;
+                &:hover{
+                    background-color: transparent;
+                    box-shadow: none;
+                    color:var(--purple);
+                }
                 &:hover ion-icon{
                     transform: translateX(4px);
                     -webkit-transform: translateX(4px);
@@ -1403,6 +1409,9 @@ footer{
             
     }
 }
+.signup-body .form-check a{
+    text-decoration: underline !important;
+}
 .login-body{
     padding:  5% 10%;
 }
@@ -1418,14 +1427,6 @@ footer{
 .signup-body{
     background-image: url(img/bg-img-left.png);
 }
-.login-message,
-.signup-message{
-    font-weight: 500;
-    text-align: center;
-    position: absolute;
-    bottom: 20px;
-    left: 22%;
-}
 .kind-reminder-login,
 .kind-reminder{
     display: none;
@@ -1434,7 +1435,7 @@ footer{
     position: absolute;
     padding: 5px 10px;
     top: -40px;
-    left: 26px;
+    left: 25%;
     color: var(--white);
     background-color: var(--red);
     border-radius: 4px;
@@ -1444,9 +1445,6 @@ footer{
     -o-border-radius: 4px;
     animation: updown 5s ease;
     -webkit-animation: updown 5s ease;
-}
-.kind-reminder-login{
-    left:25%
 }
 @media (max-width:992px){
     .signup-section,
@@ -1488,9 +1486,6 @@ footer{
         left: 0px;
         top: -20px;
         width: 100%;
-    }
-    .login-message{
-        left: 15% !important;
     }
     .head-container{
         .btn ion-icon{
@@ -1951,5 +1946,86 @@ footer{
     .user-profile{
         width: 98% !important;
         gap: 40px;
+    }
+}
+
+.terms-body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color:var(--white-soft);
+    width: 100%;
+    .logo{
+        h2{
+            margin: 0 !important;
+        }
+    }
+}
+
+.terms-body .container {
+    width: 50%;
+    margin: 12vh auto 0 auto;
+    padding: 20px;
+    background: transparent;
+    border-radius: 8px;
+}
+
+.terms-body h1 {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.terms-body h2 {
+    color: var(--white);
+    margin-top: 20px;
+    font-size: 1.4rem;
+}
+
+.terms-body p {
+    margin: 10px 0;
+}
+
+.terms-body .linked {
+    border-bottom: 1px solid transparent;
+    color: var(--white);
+    text-decoration: none;
+    transition: all .3s ease;
+    -webkit-transition: all .3s ease;
+    -moz-transition: all .3s ease;
+    -ms-transition: all .3s ease;
+    -o-transition: all .3s ease;
+}
+
+.terms-body .linked:hover {
+    border-bottom: 1px solid var(--white);
+}
+
+.terms-body ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.terms-body ul li {
+    margin-bottom: 10px;
+}
+
+.terms-body .ending {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: var(--white);
+}
+
+.terms-body .ending a {
+    color: #007BFF;
+}
+.terms-body .footer-area{
+    margin: 30px auto;
+}
+@media (max-width:768px){
+    .terms-body .container{
+        margin: 8vh auto 0 auto;
     }
 }

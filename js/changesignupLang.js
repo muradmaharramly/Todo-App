@@ -1,11 +1,11 @@
 const langData = {
     az: [
         "Geri", "Dili dəyişdir", "Qeydiyyatdan keçin", "İstifadəçi adı", "Şifrə", "Şifrəni təsdiqləyin",
-        "Şərtləri qəbul edin", "Qeydiyyatdan keçin", "Todo Tətbiqində Aləminizi Yaradın", "Artıq hesabınız var?", "Daxil olun",
+        "<a href=\"terms.html\">Şərtləri</a> qəbul edin", "Qeydiyyatdan keçin", "Todo Tətbiqində Aləminizi Yaradın", "Artıq hesabınız var?", "Daxil olun",
     ],
     en: [
         "Back", "Change language", "Sign Up", "Username", "Password", "Confirm Password",
-        "Accept Terms", "Sign Up", "Create Your Universe in Todo App", "Already have an account?", "Login",
+        "Accept <a href=\"terms.html\">Terms</a>", "Sign Up", "Create Your Universe in Todo App", "Already have an account?", "Login",
     ]
 };
 
