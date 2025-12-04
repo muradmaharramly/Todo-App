@@ -632,8 +632,8 @@ header{
             }
             .user-profile{
                 border: 2px solid var(--purple-hover);
-                width: 40px;
-                height: 40px;
+                width: 40px !important;
+                height: 40px !important;
                 border-radius: 50%;
                 -webkit-border-radius: 50%;
                 -moz-border-radius: 50%;
