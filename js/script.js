@@ -57,6 +57,10 @@ function addTaskToUI(text) {
     addSound.play();
     const todoItem = document.createElement("li");
     todoItem.classList.add("todo-item");
+
+    // DRAG & DROP üçün unikal ID
+    todoItem.dataset.id = Date.now();
+
     listArr.push(todoItem);
     listArr.reverse();
 
@@ -85,14 +89,9 @@ function addTaskToUI(text) {
     btnDiv.append(statusText);
     btnDiv.append(doneBtn);
     btnDiv.append(deleteBtn);
-    statusText.innerHTML = "Pending";
     statusText.innerHTML = currentLang === "en" ? "Pending" : "Gözləyir";
     langButn.addEventListener("click", () => {
-        if (currentLang === "en") {
-            statusText.innerHTML = "Pending";
-        } else {
-            statusText.innerHTML = "Gözləyir";
-        }
+        statusText.innerHTML = currentLang === "en" ? "Pending" : "Gözləyir";
     });
 
     doneBtn.innerHTML = `<ion-icon name="checkmark-outline"></ion-icon>`;
@@ -147,6 +146,9 @@ function addTaskToUI(text) {
 
     counter();
     input.value = "";
+
+    // DRAG aktivasiyası
+    enableDragAndDrop();
 }
 
 clearBtn.onclick = () => {
@@ -228,9 +230,70 @@ function updateProfileImage() {
         imgNav.src = savedImage; 
     } else {
         imgNav.src = "https://i.pinimg.com/736x/11/27/cc/1127cc05230f856fc393ce699a1a1451.jpg"; 
-        
     }
 };
 document.addEventListener("DOMContentLoaded", () =>{
     updateProfileImage();
 });
+
+
+// =====================================
+//        DRAG & DROP ƏLAVƏSİ
+// =====================================
+
+function enableDragAndDrop() {
+    const items = document.querySelectorAll(".todo-item");
+
+    items.forEach((item) => {
+        item.setAttribute("draggable", "true");
+
+        item.addEventListener("dragstart", (e) => {
+            e.dataTransfer.setData("text/plain", item.dataset.id);
+            item.classList.add("dragging");
+        });
+
+        item.addEventListener("dragend", () => {
+            item.classList.remove("dragging");
+            saveOrderToLocalStorage();
+        });
+    });
+
+    todoList.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        const dragging = document.querySelector(".dragging");
+        const afterElement = getDragAfterElement(todoList, e.clientY);
+
+        if (afterElement == null) {
+            todoList.appendChild(dragging);
+        } else {
+            todoList.insertBefore(dragging, afterElement);
+        }
+    });
+}
+
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll(".todo-item:not(.dragging)")];
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+
+        if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+        } else {
+            return closest;
+        }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+function saveOrderToLocalStorage() {
+    const items = document.querySelectorAll(".todo-item");
+    const newOrder = [];
+
+    items.forEach((li) => {
+        newOrder.push(li.textContent.trim());
+    });
+
+    localStorage.setItem("todos", JSON.stringify(newOrder));
+}
+
