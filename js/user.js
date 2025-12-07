@@ -66,7 +66,7 @@ function setItem(key, value) {
     updatePoint(); 
     updateLevel();
 }
-//chatgpt
+
 window.addEventListener("storage", (event) => {
     if (event.key === "username") {
         updatePoint();  
@@ -75,7 +75,6 @@ window.addEventListener("storage", (event) => {
         updateLevel();     
     }
 });
-//
 
 document.addEventListener("DOMContentLoaded", () => {
     updatePoint();
@@ -85,9 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
 const fileInput = document.getElementById("fileInput");
 const imgDiv = document.querySelector(".img-div img");
 const saveButton = document.querySelector(".save-changes");
+const cancelButton = document.querySelector(".cancel-changes");
 const imageUpload = document.querySelector(".image-upload");
 const uploadSuccesOverlay = document.querySelector(".upload-succes-overlay");
 const uploadErrorOverlay = document.querySelector(".upload-error-overlay");
+const imgDivContainer = document.querySelector(".img-div");
 
 function updateProfileImage() {
     const savedImage = localStorage.getItem("profileImage");
@@ -95,30 +96,61 @@ function updateProfileImage() {
         imgDiv.src = savedImage; 
     } else {
         imgDiv.src = "https://i.pinimg.com/736x/11/27/cc/1127cc05230f856fc393ce699a1a1451.jpg"; 
-        
     }
-};
+}
+
 document.addEventListener("DOMContentLoaded",() =>{
     updateProfileImage();
 });
 
 fileInput.addEventListener("change", (event) => {
-    saveButton.style.display = "inline";
-    imageUpload.style.display = "none";
-    const file = event.target.files[0];
-    if (file) {
+    handleFileSelect(event.target.files[0]);
+});
+
+function handleFileSelect(file) {
+    if (file && file.type.startsWith('image/')) {
+        saveButton.style.display = "inline";
+        cancelButton.style.display = "inline";
+        imageUpload.style.display = "none";
         const reader = new FileReader();
         reader.onload = function (e) {
             imgDiv.src = e.target.result;
         };
-        reader.readAsDataURL(file); 
+        reader.readAsDataURL(file);
     } else {
         updateProfileImage();
+    }
+}
+
+imgDivContainer.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    imgDivContainer.style.border = "3px dashed var(--purple)";
+    imgDivContainer.style.opacity = "0.7";
+});
+
+imgDivContainer.addEventListener("dragleave", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    imgDivContainer.style.border = "";
+    imgDivContainer.style.opacity = "1";
+});
+
+imgDivContainer.addEventListener("drop", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    imgDivContainer.style.border = "";
+    imgDivContainer.style.opacity = "1";
+    
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+        handleFileSelect(files[0]);
     }
 });
 
 saveButton.addEventListener("click", () => {
     saveButton.style.display = "none";
+    cancelButton.style.display = "none";
     imageUpload.style.display = "block";
     const currentImage = imgDiv.src;
     if (currentImage.startsWith("data:image")) { 
@@ -133,7 +165,15 @@ saveButton.addEventListener("click", () => {
             uploadErrorOverlay.style.display = "none";
         },2000);
         updateProfileImage(); 
-    };
+    }
+});
+
+cancelButton.addEventListener("click", () => {
+    saveButton.style.display = "none";
+    cancelButton.style.display = "none";
+    imageUpload.style.display = "block";
+    updateProfileImage();
+    fileInput.value = "";
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -143,4 +183,22 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
         preloader.style.display = "none";
     }, 1000);
+});
+
+const logoutBtn = document.querySelector(".logout");
+const logoutOverlay = document.querySelector(".logout-overlay");
+const yesBtn = document.querySelector(".btn-yes");
+const noBtn = document.querySelector(".btn-no");
+logoutBtn.addEventListener("click", () => {
+    logoutOverlay.classList.add("active");
+    yesBtn.addEventListener("click", () => {
+        logoutOverlay.classList.remove("active");
+        setTimeout(() => {
+            window.location.replace("https://todo-app-dynamic.netlify.app");
+        }, 250);
+    });
+
+    noBtn.addEventListener("click", () => {
+        logoutOverlay.classList.remove("active");
+    });
 });

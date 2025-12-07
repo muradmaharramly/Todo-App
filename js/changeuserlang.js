@@ -1,11 +1,15 @@
 const langData = {
     az: [
-        "Geri", "Şəkil yükləndi", "Sən mükəmməl görünürsən!", "Xəta", "Saxlamaq üçün uyğun şəkil yoxdur!", "Yadda saxla", "Istifadəçi adı :", "Səviyyə :", "Status :", "Xal :",
+        "<ion-icon name=\"chevron-back-outline\"></ion-icon> Geri", "Çıxış <ion-icon name=\"exit-outline\"></ion-icon>","Çıxmaq istədiyinə əminsən?",
+        "Bəli",
+        "Xeyr", "Şəkil yükləndi", "Sən mükəmməl görünürsən!", "Xəta", "Saxlamaq üçün uyğun şəkil yoxdur!", "Istifadəçi adı :", "Səviyyə :", "Status :", "Xal :",
         "<a href=\"https://www.linkedin.com/in/murad-maharramly/\">Murad Mahərrəmli</a> tərəfindən hazırlanmışdır", 
         "Dili dəyişdir"
     ],
     en: [
-        "Back", "Image uploaded", "Your are looking perfect!", "Error", "No valid image to save.", "Save", "Username :", "Level :", "Status :", "Point :",
+        "<ion-icon name=\"chevron-back-outline\"></ion-icon> Back","Logout <ion-icon name=\"exit-outline\"></ion-icon>","Are you sure you want to log out?",
+        "Yes",
+        "No", "Image uploaded", "Your are looking perfect!", "Error", "No valid image to save.", "Username :", "Level :", "Status :", "Point :",
         "Developed by <a href=\"https://www.linkedin.com/in/murad-maharramly/\">Murad Maharramli</a>", 
         "Change language"
     ]

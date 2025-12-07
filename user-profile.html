@@ -13,31 +13,50 @@
     <!--External CSS-->
     <link rel="stylesheet" href="style.css">
     <!--Aos CSS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+        integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rethink+Sans:ital,wght@0,400..800;1,400..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
     <!--Title-->
     <title>User profile - Todo App</title>
 </head>
 
 <body>
-    <div class="pre-loader"><div class="pre-load-circle1"></div><div class="pre-load-circle2"></div></div>
+    <div class="pre-loader">
+        <div class="pre-load-circle1"></div>
+        <div class="pre-load-circle2"></div>
+    </div>
     <header>
         <nav class="user-nav" data-aos="fade-down" data-aos-duration="2000">
             <div class="logo">
-                <a href="user-profile.html"><img src="img/todo-logo.png" alt="todo-logo"></a>
-                <a href="user-profile.html">
+                <a href="app.html"><img src="img/todo-logo.png" alt="todo-logo"></a>
+                <a href="app.html">
                     <h2>Todo App</h2>
                 </a>
             </div>
             <div class="elements-div">
-                <a href="app.html"><ion-icon name="chevron-back-outline"></ion-icon><span class="changeText">Back</span></a>
+                <a href="app.html" class="btn back changeText"><ion-icon name="chevron-back-outline"></ion-icon>
+                    Back</a>
+                <a href="#" class="btn logout changeText">Logout <ion-icon name="exit-outline"></ion-icon></a>
             </div>
         </nav>
     </header>
     <main class="user-profile-main">
+        <div class="logout-overlay custom">
+            <div class="alert-container">
+                <h3 class="changeText">Are you sure you want to log out?</h3>
+                <img src="img/bear-danger.png" alt="">
+                <div class="btn-div">
+                    <button class="btn btn-yes changeText">Yes</button>
+                    <button class="btn btn-no changeText">No</button>
+                </div>
+            </div>
+        </div>
         <div class="upload-succes-overlay custom">
             <div class="alert-container">
                 <span class="upload-succes changeText">Image Uploaded</span>
@@ -52,7 +71,10 @@
                 <img src="img/bear-dontknow.png" alt="">
             </div>
         </div>
-        <div class="pre-loader"><div class="pre-load-circle1"></div><div class="pre-load-circle2"></div></div>
+        <div class="pre-loader">
+            <div class="pre-load-circle1"></div>
+            <div class="pre-load-circle2"></div>
+        </div>
         <section class="user-container">
             <div class="user-profile">
                 <div class="image-area">
@@ -62,18 +84,25 @@
                     <div class="add-photo">
                         <div class="image-upload">
                             <label for="fileInput" class="upload-label">
-                                <ion-icon class="upload-icon" name="add-outline"></ion-icon>
+                                <ion-icon class="upload-icon" name="cloud-upload-outline"></ion-icon>
                             </label>
                             <input type="file" id="fileInput" accept="image/*" />
                         </div>
                     </div>
-                    <button class="btn save-changes changeText">Save</button>
+                    <div class="btns">
+                        <button class="btn cancel-changes"><ion-icon name="close-outline"></ion-icon></button>
+                        <button class="btn save-changes"><ion-icon name="checkmark-outline"></ion-icon></button>
+                    </div>
                 </div>
                 <div class="infos-area">
-                    <p class="username-label"><ion-icon name="person-outline"></ion-icon><b class="changeText">Username :</b> <span class="username-text"></span></p>
-                    <p class="level-label"><ion-icon name="cellular-outline"></ion-icon><b class="changeText">Level :</b> <span class="level-text">0</span></p>
-                    <p class="Status-label"><ion-icon name="footsteps-outline"></ion-icon><b class="changeText">Status :</b> <span class="status-content">Beginner</span></p>
-                    <p class="point-label"><ion-icon name="sparkles-outline"></ion-icon><b class="changeText">Point :</b> <span class="point-text">0</span></p>
+                    <p class="username-label"><ion-icon name="person-outline"></ion-icon><b class="changeText">Username
+                            :</b> <span class="username-text"></span></p>
+                    <p class="level-label"><ion-icon name="cellular-outline"></ion-icon><b class="changeText">Level
+                            :</b> <span class="level-text">0</span></p>
+                    <p class="Status-label"><ion-icon name="footsteps-outline"></ion-icon><b class="changeText">Status
+                            :</b> <span class="status-content">Beginner</span></p>
+                    <p class="point-label"><ion-icon name="sparkles-outline"></ion-icon><b class="changeText">Point
+                            :</b> <span class="point-text">0</span></p>
                 </div>
                 <div class="beginner-icon"><ion-icon name="extension-puzzle-outline"></ion-icon></div>
                 <div class="middle-icon"><ion-icon name="star-outline"></ion-icon></div>
@@ -82,23 +111,28 @@
         </section>
         <footer>
             <div class="footer-area">
-                <p class="changeText">Developed by <a href="https://www.linkedin.com/in/murad-maharramly/">Murad Maharramli</a></p>
+                <p class="changeText">Developed by <a href="https://www.linkedin.com/in/murad-maharramly/">Murad
+                        Maharramli</a></p>
                 <div class="lang-div">
                     <span class="changeText">Change language</span>
                     <div class="lang-btn" onclick="changeLanguageUser()">
-                        <img class="flag-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png" alt="lang-change-img">
+                        <img class="flag-img"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/2560px-Flag_of_Azerbaijan.svg.png"
+                            alt="lang-change-img">
                     </div>
                 </div>
             </div>
         </footer>
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+        integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         window.onload = function () {
             AOS.init();
         };
     </script>
-    
+
     <script src="js/user.js"></script>
     <script src="js/changeuserlang.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

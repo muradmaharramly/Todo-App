@@ -13,8 +13,11 @@ const deleteSpan = document.querySelector(".delete-span");
 const clearSpan = document.querySelector(".clear-span");
 const errorSpan = document.querySelector(".error-span");
 const succesOverlay = document.querySelector(".succes-overlay");
+const failOverlay = document.querySelector(".fail-overlay");
+const clearOverlay = document.querySelector(".clear-overlay");
 const listArr = [];
 let doneCount = 0;
+let todoToDelete = null;
 
 const langButn = document.querySelector(".lang-btn");
 
@@ -41,79 +44,142 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("DoneCount", doneCount);
     }
     const todos = getTasksLS();
-    todos.forEach((todo) => addTaskToUI(todo));
-});
+    todos.forEach((todo) => addTaskToUI(todo, true));
 
-document.addEventListener("DOMContentLoaded", () =>{
-    function updateStatusTextLanguage() {
-        const allStatusTexts = document.querySelectorAll(".status-text");
-        allStatusTexts.forEach((status) => {
-            status.innerHTML = currentLang === "en" ? "Pending" : "Gözləyir";
-        });
-    }
-});
+    const btnYes = failOverlay.querySelector(".btn-yes");
+    const btnNo = failOverlay.querySelector(".btn-no");
 
-function addTaskToUI(text) {
-    addSound.play();
-    const todoItem = document.createElement("li");
-    todoItem.classList.add("todo-item");
+    btnYes.onclick = () => {
+        if (todoToDelete) {
+            deleteSound.play();
+            todoToDelete.item.style.backgroundColor = "#e9493b6d";
+            todoToDelete.item.style.border = "1px solid #ba3024";
+            todoToDelete.item.classList.add("deleted");
+            deleteSpan.classList.add("active");
+            removeTask(todoToDelete.text);
 
-    // DRAG & DROP üçün unikal ID
-    todoItem.dataset.id = Date.now();
+            setTimeout(() => {
+                todoToDelete.item.remove();
+                counter();
+                updateIndexes();
+                todoToDelete = null;
+            }, 500);
 
-    listArr.push(todoItem);
-    listArr.reverse();
-
-    const btnDiv = document.createElement("div");
-    btnDiv.classList.add("btn-div");
-    const statusText = document.createElement("span");
-    statusText.classList.add("status-text");
-    const deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("delete-btn");
-    const doneBtn = document.createElement("button");
-    doneBtn.classList.add("done-btn");
-
-    todoItem.append(text);
-
-    for (let i = 0; i < listArr.length; i++) {
-        todoList.append(listArr[i]);
-    }
-
-    listArr.forEach((item) => {
-        if (item.classList.contains("done") || item.classList.contains("deleted")) {
-            item.remove();
+            setTimeout(() => {
+                deleteSpan.classList.remove("active");
+            }, 800);
         }
-    });
+        failOverlay.style.display = "none";
+    };
 
-    todoItem.append(btnDiv);
-    btnDiv.append(statusText);
-    btnDiv.append(doneBtn);
-    btnDiv.append(deleteBtn);
-    statusText.innerHTML = currentLang === "en" ? "Pending" : "Gözləyir";
-    langButn.addEventListener("click", () => {
-        statusText.innerHTML = currentLang === "en" ? "Pending" : "Gözləyir";
-    });
+    btnNo.onclick = () => {
+        todoToDelete = null;
+        failOverlay.style.display = "none";
+    };
 
-    doneBtn.innerHTML = `<ion-icon name="checkmark-outline"></ion-icon>`;
-    deleteBtn.innerHTML = `<ion-icon name="trash-bin-outline"></ion-icon>`;
+    const clearYes = clearOverlay.querySelector(".btn-yes");
+    const clearNo = clearOverlay.querySelector(".btn-no");
 
-    deleteBtn.onclick = () => {
-        deleteSound.play();
-        todoItem.style.backgroundColor = "#e9493b6d";
-        todoItem.style.border = "1px solid #ba3024";
-        todoItem.classList.add("deleted");
-        statusText.remove();
-        deleteSpan.classList.add("active");
-        removeTask(text);
+    clearYes.onclick = () => {
+        clearSound.play();
+        const tdItems = document.querySelectorAll(".todo-item");
+        tdItems.forEach((item) => {
+            item.classList.add("cleaned");
+        });
+
+        clearSpan.classList.add("active");
 
         setTimeout(() => {
-            todoItem.remove();
+            tdItems.forEach((item) => {
+                item.classList.remove("cleaned");
+                item.remove();
+            });
             counter();
+            updateIndexes();
         }, 500);
 
         setTimeout(() => {
-            deleteSpan.classList.remove("active");
+            clearSpan.classList.remove("active");
         }, 800);
+
+        localStorage.removeItem("todos");
+        listArr.length = 0;
+        clearOverlay.style.display = "none";
+    };
+
+    clearNo.onclick = () => {
+        clearOverlay.style.display = "none";
+    };
+});
+
+function updateIndexes() {
+    const items = document.querySelectorAll(".todo-item");
+    items.forEach((item, index) => {
+        const indexDiv = item.querySelector(".index");
+        if (indexDiv) {
+            indexDiv.textContent = index + 1;
+        }
+    });
+}
+
+function addTaskToUI(text, isLoading = false) {
+    if (!isLoading) {
+        addSound.play();
+    }
+    
+    const todoItem = document.createElement("li");
+    todoItem.classList.add("todo-item");
+    todoItem.dataset.id = Date.now() + Math.random();
+
+    const textContent = document.createElement("div");
+    textContent.classList.add("text-content");
+
+    const indexDiv = document.createElement("div");
+    indexDiv.classList.add("index");
+
+    const textSpan = document.createElement("span");
+    textSpan.classList.add("todo-text");
+    textSpan.textContent = text;
+
+    textContent.append(indexDiv);
+    textContent.append(textSpan);
+
+    const btnDiv = document.createElement("div");
+    btnDiv.classList.add("btn-div");
+    
+    const statusIcon = document.createElement("span");
+    statusIcon.classList.add("status-text");
+    statusIcon.innerHTML = `<ion-icon name="time-outline"></ion-icon>`;
+    
+    const doneBtn = document.createElement("button");
+    doneBtn.classList.add("done-btn");
+    doneBtn.innerHTML = `<ion-icon name="checkmark-outline"></ion-icon>`;
+    
+    const deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("delete-btn");
+    deleteBtn.innerHTML = `<ion-icon name="trash-bin-outline"></ion-icon>`;
+
+    btnDiv.append(statusIcon);
+    btnDiv.append(doneBtn);
+    btnDiv.append(deleteBtn);
+
+    todoItem.append(textContent);
+    todoItem.append(btnDiv);
+
+    if (!isLoading) {
+        listArr.unshift(todoItem);
+        todoList.insertBefore(todoItem, todoList.firstChild);
+    } else {
+        todoList.append(todoItem);
+    }
+
+    deleteBtn.onclick = () => {
+        todoToDelete = {
+            item: todoItem,
+            text: text,
+            statusIcon: statusIcon
+        };
+        failOverlay.style.display = "flex";
     };
 
     doneBtn.onclick = () => {
@@ -123,7 +189,7 @@ function addTaskToUI(text) {
         todoItem.style.backgroundColor = "#4aeb4a75";
         todoItem.style.border = "1px solid #289d28";
         todoItem.classList.add("done");
-        statusText.remove();
+        statusIcon.remove();
         doneSpan.classList.add("active");
         succesOverlay.style.display = "flex";
 
@@ -131,6 +197,7 @@ function addTaskToUI(text) {
             removeTask(text);
             todoItem.remove();
             counter();
+            updateIndexes();
         }, 500);
 
         setTimeout(() => {
@@ -145,35 +212,14 @@ function addTaskToUI(text) {
     };
 
     counter();
+    updateIndexes();
     input.value = "";
 
-    // DRAG aktivasiyası
     enableDragAndDrop();
 }
 
 clearBtn.onclick = () => {
-    clearSound.play();
-    const tdItems = document.querySelectorAll(".todo-item");
-    tdItems.forEach((item) => {
-        item.classList.add("cleaned");
-    });
-
-    clearSpan.classList.add("active");
-
-    setTimeout(() => {
-        tdItems.forEach((item) => {
-            item.classList.remove("cleaned");
-            item.remove();
-        });
-        counter();
-    }, 500);
-
-    setTimeout(() => {
-        clearSpan.classList.remove("active");
-    }, 800);
-
-    localStorage.removeItem("todos");
-    listArr.length = 0;
+    clearOverlay.style.display = "flex";
 };
 
 function counter() {
@@ -231,15 +277,11 @@ function updateProfileImage() {
     } else {
         imgNav.src = "https://i.pinimg.com/736x/11/27/cc/1127cc05230f856fc393ce699a1a1451.jpg"; 
     }
-};
+}
+
 document.addEventListener("DOMContentLoaded", () =>{
     updateProfileImage();
 });
-
-
-// =====================================
-//        DRAG & DROP ƏLAVƏSİ
-// =====================================
 
 function enableDragAndDrop() {
     const items = document.querySelectorAll(".todo-item");
@@ -247,28 +289,38 @@ function enableDragAndDrop() {
     items.forEach((item) => {
         item.setAttribute("draggable", "true");
 
-        item.addEventListener("dragstart", (e) => {
-            e.dataTransfer.setData("text/plain", item.dataset.id);
-            item.classList.add("dragging");
-        });
-
-        item.addEventListener("dragend", () => {
-            item.classList.remove("dragging");
-            saveOrderToLocalStorage();
-        });
+        item.removeEventListener("dragstart", handleDragStart);
+        item.removeEventListener("dragend", handleDragEnd);
+        
+        item.addEventListener("dragstart", handleDragStart);
+        item.addEventListener("dragend", handleDragEnd);
     });
 
-    todoList.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        const dragging = document.querySelector(".dragging");
-        const afterElement = getDragAfterElement(todoList, e.clientY);
+    todoList.removeEventListener("dragover", handleDragOver);
+    todoList.addEventListener("dragover", handleDragOver);
+}
 
-        if (afterElement == null) {
-            todoList.appendChild(dragging);
-        } else {
-            todoList.insertBefore(dragging, afterElement);
-        }
-    });
+function handleDragStart(e) {
+    e.dataTransfer.setData("text/plain", e.target.dataset.id);
+    e.target.classList.add("dragging");
+}
+
+function handleDragEnd(e) {
+    e.target.classList.remove("dragging");
+    saveOrderToLocalStorage();
+    updateIndexes();
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+    const dragging = document.querySelector(".dragging");
+    const afterElement = getDragAfterElement(todoList, e.clientY);
+
+    if (afterElement == null) {
+        todoList.appendChild(dragging);
+    } else {
+        todoList.insertBefore(dragging, afterElement);
+    }
 }
 
 function getDragAfterElement(container, y) {
@@ -291,9 +343,11 @@ function saveOrderToLocalStorage() {
     const newOrder = [];
 
     items.forEach((li) => {
-        newOrder.push(li.textContent.trim());
+        const todoText = li.querySelector(".todo-text");
+        if (todoText) {
+            newOrder.push(todoText.textContent.trim());
+        }
     });
 
     localStorage.setItem("todos", JSON.stringify(newOrder));
 }
-

@@ -35,7 +35,7 @@
                         <img class="profile-nav" src="https://i.pinimg.com/736x/11/27/cc/1127cc05230f856fc393ce699a1a1451.jpg" alt="">
                     </div>
                 </a>
-                <a href="#" class="btn logout changeText">Logout</a>
+                <a href="#" class="btn logout changeText">Logout <ion-icon name="exit-outline"></ion-icon></a>
             </div>
         </nav>
     </header>
@@ -56,6 +56,26 @@
                 <img src="img/happy-bear.gif" alt="">
             </div>
         </div>
+        <div class="fail-overlay custom">
+            <div class="alert-container">
+                <h3 class="changeText">Your are perfect! Keep going!</h3>
+                <img src="img/bear-unhappy.png" alt="">
+                <div class="btn-div">
+                    <button class="btn btn-yes changeText">Delete</button>
+                    <button class="btn btn-no changeText">Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div class="clear-overlay custom">
+            <div class="alert-container">
+                <h3 class="changeText">Your are perfect! Keep going!</h3>
+                <img src="img/bear-crazy.png" alt="">
+                <div class="btn-div">
+                    <button class="btn btn-yes changeText">Delete</button>
+                    <button class="btn btn-no changeText">Cancel</button>
+                </div>
+            </div>
+        </div>
         <audio class="add-sound" src="sounds/added-sound.mp3"></audio>
         <audio class="done-sound" src="sounds/Done-sound.mp3"></audio>
         <audio class="delete-sound" src="sounds/Delete-sound.mp3"></audio>
@@ -67,7 +87,7 @@
                     <img src="img/todo-logo.png" alt="">
                     <h2>Todo App</h2>
                 </div>
-                <a href="user-profile.html" class="btn changeText">See Profile <ion-icon name="chevron-forward-outline"></ion-icon></a>
+                <a href="user-profile.html" class="btn see-profile changeText">See Profile <ion-icon name="chevron-forward-outline"></ion-icon></a>
             </div>
             <form action="">
                 <input class="input" type="text" placeholder="Enter your task...">
@@ -86,7 +106,7 @@
             </ul>
             <div class="container-ending">
                 <p class="item-info changeText">You have <span class="item-count">0</span> pending tasks</p>
-                <button class="clear-btn changeText">Clear All</button>
+                <button class="clear-btn changeText">Clear All <ion-icon name="trash-bin-outline"></ion-icon></button>
             </div>
 
         </div>

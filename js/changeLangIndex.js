@@ -1,7 +1,7 @@
 const langData = {
     az: [
-        "Giriş", 
-        "Qeydiyyat", 
+        "Giriş <ion-icon name=\"log-in-outline\"></ion-icon>", 
+        "Qeydiyyat <ion-icon name=\"person-add-outline\"></ion-icon>", 
         "Planlı qalın, daha çoxuna nail olun.", 
         "Todo App sizə planlı qalmağa və məhsuldar olmağa kömək edir. Tapşırıqlarınızı idarə edin, məqsədlərinizi prioritetləşdirin və hər gün asanlıqla və özünə inamla uğur əldə edin.", 
         "Hədəflərinizi tamamlayın.", 
@@ -18,8 +18,8 @@ const langData = {
         "Dili dəyişdir"
     ],
     en: [
-        "Log in", 
-        "Sign Up", 
+        "Log in <ion-icon name=\"log-in-outline\"></ion-icon>", 
+        "Sign Up <ion-icon name=\"person-add-outline\"></ion-icon>", 
         "Stay organized, achieve more effortlessly.", 
         "Todo App helps you stay organized and productive effortlessly. Manage your tasks, prioritize your goals, and achieve success with ease and confidence every day.", 
         "Complete goals.", 
